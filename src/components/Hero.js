@@ -32,6 +32,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
         className="text-center md:text-left max-w-2xl flex flex-col justify-center"
       >
+        {/* eslint-disable-next-line react/no-unescaped-entities */}  
         <h1 className="text-5xl font-bold mb-4">
           👋 Hi, I'm <span className="text-cyan-400">Iyanuoluwa Oke</span>
         </h1>
