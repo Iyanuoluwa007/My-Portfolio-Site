@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const container = {
   hidden: { opacity: 0, y: 40 },
   show: {
-    opacity: 1, 
+    opacity: 1,
     y: 0,
     transition: { duration: 0.5, when: "beforeChildren", staggerChildren: 0.15 },
   },
@@ -21,9 +21,21 @@ export default function Projects() {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated")
+    const headers = {};
+    if (process.env.NEXT_PUBLIC_GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`;
+    }
+
+    fetch(
+      "https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated",
+      { headers }
+    )
       .then((r) => r.json())
-      .then((d) => setRepos((d || []).filter((x) => !x.fork && !x.archived)));
+      .then((d) => {
+        console.log("Fetched repos:", d); // debug
+        setRepos((d || []).filter((x) => !x.fork && !x.archived));
+      })
+      .catch((err) => console.error("GitHub fetch error:", err));
   }, []);
 
   return (
