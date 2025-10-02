@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section
-      className="flex flex-col md:flex-row items-center justify-center gap-24 px-10 text-white py-20"
+      className="flex flex-col md:flex-row items-center justify-center gap-20 md:gap-24 px-6 md:px-10 text-white py-20"
       style={{
         backgroundImage: "url('/Background.png')",
         backgroundSize: "cover",
@@ -30,7 +30,7 @@ export default function Hero() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="text-center md:text-left max-w-2xl flex flex-col justify-center -mt-24"
+        className="text-center md:text-left max-w-2xl flex flex-col justify-center md:-mt-24"
       >
         <h1 className="text-5xl font-bold mb-4">
           👋 Hi, I&apos;m <span className="text-cyan-400">Iyanuoluwa Oke</span>
