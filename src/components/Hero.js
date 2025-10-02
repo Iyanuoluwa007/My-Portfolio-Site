@@ -30,7 +30,7 @@ export default function Hero() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="text-center md:text-left max-w-2xl flex flex-col justify-center"
+        className="text-center md:text-left max-w-2xl flex flex-col justify-center -mt-24"
       >
         <h1 className="text-5xl font-bold mb-4">
           👋 Hi, I&apos;m <span className="text-cyan-400">Iyanuoluwa Oke</span>
