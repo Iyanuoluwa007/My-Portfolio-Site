@@ -2,18 +2,19 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// Animation variants
 const container = {
   hidden: { opacity: 0, y: 40 },
   show: {
-    opacity: 1,
+    opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, when: "beforeChildren", staggerChildren: 0.15 }
+    transition: { duration: 0.5, when: "beforeChildren", staggerChildren: 0.15 },
   },
 };
 
 const card = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
 export default function Projects() {
@@ -21,21 +22,22 @@ export default function Projects() {
 
   useEffect(() => {
     fetch("https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated")
-      .then(r => r.json())
-      .then(d => setRepos((d || []).filter(x => !x.fork && !x.archived)));
+      .then((r) => r.json())
+      .then((d) => setRepos((d || []).filter((x) => !x.fork && !x.archived)));
   }, []);
 
   return (
     <section
       id="projects"
-      className="bg-dark text-white py-20 px-6"
+      className="py-20 px-6 text-white"
       style={{
         backgroundImage: "url('/Background.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed"
+        backgroundAttachment: "fixed",
       }}
     >
+      {/* Section Heading */}
       <motion.h2
         className="text-3xl md:text-4xl font-bold text-center mb-10 text-cyan-400"
         initial={{ opacity: 0, y: 24 }}
@@ -46,6 +48,7 @@ export default function Projects() {
         🧪 My Projects
       </motion.h2>
 
+      {/* Projects Grid */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -53,14 +56,19 @@ export default function Projects() {
         viewport={{ once: true, amount: 0.2 }}
         className="max-w-6xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {repos.map(repo => (
+        {repos.map((repo) => (
           <motion.div
             key={repo.id}
             variants={card}
             className="rounded-xl p-6 bg-gradient-to-br from-primary/20 to-accent/20 border border-white/10 text-white shadow-glow glow-hover"
           >
             <h3 className="text-xl font-semibold mb-2">
-              <a href={repo.html_url} target="_blank" className="hover:underline">
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 {repo.name}
               </a>
             </h3>
