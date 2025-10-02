@@ -43,6 +43,23 @@ npm install
 
 # Run dev server
 npm run dev
+```
 
-# Open in browser
+### Open in browser
+```bash
 http://localhost:3000
+```
+---
+
+## 📸 Screenshots
+
+![Website Screenshot](./website_screen_shot.png)
+
+---
+
+## 📬 Contact Me
+
+- 📧 Email: [oke.iyanuoluwa12@gmail.com](mailto:oke.iyanuoluwa12@gmail.com)  
+- 💼 LinkedIn: [linkedin.com/in/iyanuoluwa-enoch-oke](https://www.linkedin.com/in/iyanuoluwa-enoch-oke/)  
+- 💻 GitHub: [github.com/Iyanuoluwa007](https://github.com/Iyanuoluwa007)  
+- 📝 CV: [Download Here](https://drive.google.com/file/d/1QwpycQIutZnM9STD5lv9PMcv4v3nZxjS/view?usp=sharing)
