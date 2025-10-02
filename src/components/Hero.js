@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section
-      className="flex flex-col md:flex-row items-center justify-center gap-12 px-10 text-white py-20"
+      className="flex flex-col md:flex-row items-center justify-center gap-24 px-10 text-white py-20"
       style={{
         backgroundImage: "url('/Background.png')",
         backgroundSize: "cover",
