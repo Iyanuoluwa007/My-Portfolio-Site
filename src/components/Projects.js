@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// Animation variants
 const container = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -10,34 +10,31 @@ const container = {
     transition: { duration: 0.5, when: "beforeChildren", staggerChildren: 0.15 },
   },
 };
+
 const card = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
-export default function Projects() {
-  const [repos, setRepos] = useState([]);
+export default async function Projects() {
+  // 🔑 Add headers using your environment variable
+  const headers = {};
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
 
-  useEffect(() => {
-    fetch("https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated")
-      .then((r) => r.json())
-      .then((d) => setRepos((d || []).filter((x) => !x.fork && !x.archived)));
-  }, []);
+  const res = await fetch(
+    "https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated",
+    { headers, next: { revalidate: 3600 } } // cache for 1h
+  );
+
+  const data = await res.json();
+  const repos = (data || []).filter((x) => !x.fork && !x.archived);
 
   return (
-    <section
-      id="projects"
-      className="py-20 px-6 text-white"
-      style={{
-        backgroundImage: "url('/Background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Section Heading */}
+    <section id="projects">
       <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center mb-10 text-cyan-400"
+        className="text-3xl md:text-4xl font-bold text-center mb-10"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -46,7 +43,6 @@ export default function Projects() {
         🧪 My Projects
       </motion.h2>
 
-      {/* Projects Grid */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -61,14 +57,21 @@ export default function Projects() {
             className="rounded-xl p-6 bg-gradient-to-br from-primary/20 to-accent/20 border border-white/10 text-white shadow-glow glow-hover"
           >
             <h3 className="text-xl font-semibold mb-2">
-              <a href={repo.html_url} target="_blank" className="hover:underline">
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 {repo.name}
               </a>
             </h3>
             <p className="text-sm text-white/80 mb-4">
               {repo.description || "No description available"}
             </p>
-            <div className="text-xs text-white/60">⭐ {repo.stargazers_count}</div>
+            <div className="text-xs text-white/60">
+              ⭐ {repo.stargazers_count}
+            </div>
           </motion.div>
         ))}
       </motion.div>
