@@ -31,7 +31,7 @@ export default function About() {
           transition={{ duration: 1 }}
           className="text-lg leading-relaxed text-gray-200"
         >
-          I’m <span className="text-cyan-400 font-semibold">Iyanuoluwa Oke</span>, 
+          I’m <span className="text-cyan-400 font-semibold">Iyanuoluwa Enoch Oke</span>, 
           a passionate <span className="text-cyan-300">Robotics & AI Engineer </span> 
           with a background in <span className="text-cyan-300">MSc Robotics & Automation 
           (University of Salford)</span> and 
@@ -41,8 +41,8 @@ export default function About() {
           and Autonomous Robotics</span>.  
           I have built projects on <span className="text-cyan-300">YOLO object detection</span>, 
           <span className="text-cyan-300"> SLAM navigation</span>, 
-          <span className="text-cyan-300"> gesture recognition</span>, and 
-          <span className="text-cyan-300"> autonomous perception systems</span>.
+          <span className="text-cyan-300"> Gesture Recognition</span>, and 
+          <span className="text-cyan-300"> Autonomous Perception Systems</span>.
         </motion.p>
       </div>
     </section>
