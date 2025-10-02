@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // Animation variants
@@ -17,26 +15,29 @@ const card = {
   show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
-export default function Projects() {
-  const [repos, setRepos] = useState([]);
+// 🚀 Server-side fetch with hidden token
+async function getRepos() {
+  const headers = {};
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
 
-  useEffect(() => {
-    const headers = {};
-    if (process.env.NEXT_PUBLIC_GITHUB_TOKEN) {
-      headers.Authorization = `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`;
-    }
+  const res = await fetch(
+    "https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated",
+    { headers, next: { revalidate: 3600 } } // cache for 1 hour
+  );
 
-    fetch(
-      "https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated",
-      { headers }
-    )
-      .then((r) => r.json())
-      .then((d) => {
-        console.log("Fetched repos:", d); // debug
-        setRepos((d || []).filter((x) => !x.fork && !x.archived));
-      })
-      .catch((err) => console.error("GitHub fetch error:", err));
-  }, []);
+  if (!res.ok) {
+    console.error("GitHub fetch error:", res.statusText);
+    return [];
+  }
+
+  const data = await res.json();
+  return (data || []).filter((x) => !x.fork && !x.archived);
+}
+
+export default async function Projects() {
+  const repos = await getRepos();
 
   return (
     <section
