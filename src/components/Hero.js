@@ -37,7 +37,7 @@ export default function Hero() {
         </h1>
         <p className="text-xl mb-6 leading-relaxed">
           Robotics & AI Engineer | Computer Vision | ROS2 Developer <br />
-          Building intelligent robotics, computer vision, and AI systems.
+          Building intelligent robotics, Computer Vision, and AI systems.
         </p>
       </motion.div>
     </section>
