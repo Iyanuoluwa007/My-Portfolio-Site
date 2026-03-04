@@ -4,7 +4,8 @@
 
 /* === Global Theme === */
 html, body {
-  @apply font-sans antialiased;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
   color: white; /* default text color */
 }
@@ -15,11 +16,6 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* keeps background steady on scroll */
-}
-
-/* === Background Glow Utility (custom radial fade if needed) === */
-.bg-neon {
-  background-image: theme('backgroundImage.radial-fade');
 }
 
 /* === Reusable Glow Effects === */
@@ -33,11 +29,6 @@ body {
 .glow-hover:hover {
   box-shadow: 0 0 40px rgba(192, 132, 252, 1);
   transform: translateY(-2px) scale(1.02);
-}
-
-/* === Section Spacing === */
-section {
-  @apply py-20 px-6;
 }
 
 
