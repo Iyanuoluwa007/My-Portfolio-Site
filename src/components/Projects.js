@@ -1,19 +1,27 @@
-(base) PS C:\Users\okeiy\My-Portfolio-Site> git status
-interactive rebase in progress; onto 5cebc6e
-Last command done (1 command done):
-   pick 14ee814 Fix Projects framer-motion server error (server/client split)
-No commands remaining.
-You are currently rebasing branch 'main' on '5cebc6e'.
-  (fix conflicts and then run "git rebase --continue")
-  (use "git rebase --skip" to skip this patch)
-  (use "git rebase --abort" to check out the original branch)
+import ProjectsClient from "./ProjectsClient";
 
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   src/app/layout.js
+// 🚀 Server-side fetch with hidden token
+async function getRepos() {
+  const headers = {};
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
 
-Unmerged paths:
-  (use "git restore --staged <file>..." to unstage)
-  (use "git add <file>..." to mark resolution)
-        both modified:   src/components/Projects.js
-        both added:      src/components/ProjectsClient.js
+  const res = await fetch(
+    "https://api.github.com/users/Iyanuoluwa007/repos?per_page=12&sort=updated",
+    { headers, next: { revalidate: 3600 } } // cache for 1 hour
+  );
+
+  if (!res.ok) {
+    console.error("GitHub fetch error:", res.statusText);
+    return [];
+  }
+
+  const data = await res.json();
+  return (data || []).filter((x) => !x.fork && !x.archived);
+}
+
+export default async function Projects() {
+  const repos = await getRepos();
+  return <ProjectsClient repos={repos} />;
+}
