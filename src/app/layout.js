@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Nav from "@/components/Nav";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} antialiased`}>
         <Nav />
         {children}
+        <Analytics />
       </body>
     </html>
   );
