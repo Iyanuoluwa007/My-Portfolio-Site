@@ -1,18 +1,16 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Nav from "@/components/Nav";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-
-export const metadata = {
-  title: "Iyanuoluwa Oke — Robotics & AI Engineer",
-  description: "Robotics, Computer Vision, and AI portfolio",
-};
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body suppressHydrationWarning className={`${inter.variable} antialiased`}>
         <Nav />
         {children}
       </body>
