@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 
 const inView = (delay = 0) => ({
@@ -9,99 +8,82 @@ const inView = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] },
 });
 
+const S = {
+  section: { position:"relative", padding:"96px 0", overflow:"hidden", backgroundColor:"#08080F" },
+  inner: { maxWidth:1152, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:1 },
+  grid: { display:"grid", gridTemplateColumns:"1fr 1fr", gap:48, alignItems:"start" },
+  h2: { fontFamily:"'Space Grotesk',system-ui,sans-serif", fontSize:"clamp(30px,4vw,46px)", fontWeight:700, color:"#F0F0F8", letterSpacing:"-0.02em", lineHeight:1.1, margin:"0 0 32px" },
+  p: { fontSize:15.5, color:"#94A3B8", lineHeight:1.8, marginBottom:20, fontFamily:"'DM Sans',system-ui,sans-serif", fontWeight:300 },
+  card: { padding:24, borderRadius:20, border:"1px solid rgba(255,255,255,0.08)", background:"#0F0F1B" },
+  statCard: { padding:16, borderRadius:14, border:"1px solid rgba(255,255,255,0.07)", background:"rgba(255,255,255,0.02)", textAlign:"center" },
+};
+
 const highlights = [
-  { icon: "◈", text: "MSc Robotics & Automation" },
-  { icon: "◈", text: "BEng Electrical & Electronics Engineering" },
-  { icon: "◈", text: "ROS2 & Autonomous Systems" },
-  { icon: "◈", text: "Deep Learning & Computer Vision" },
+  "MSc Robotics & Automation",
+  "BEng Electrical & Electronics Engineering",
+  "ROS2 & Autonomous Systems",
+  "Deep Learning & Computer Vision",
 ];
 
 const focus = [
-  "Autonomous Robotics",
-  "Computer Vision",
-  "ROS2 Systems",
-  "Deep Learning",
-  "AI Portfolio Systems",
-  "BSL Translation AI",
-  "Multi-Agent Systems",
-  "Quantitative Finance AI",
+  "Autonomous Robotics","Computer Vision","ROS2 Systems","Deep Learning",
+  "AI Portfolio Systems","BSL Translation AI","Multi-Agent Systems","Quant Finance AI",
 ];
 
 export default function About() {
   return (
-    <section id="about" className="section relative overflow-hidden">
-      {/* Subtle orb */}
-      <div className="orb w-[500px] h-[300px] right-0 top-1/2 opacity-[0.06]"
-        style={{ background: "radial-gradient(circle, #6366F1, transparent 70%)" }} />
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        {/* Section header */}
-        <motion.div {...inView()} className="mb-16">
-          <p className="section-label mb-3">01 — About</p>
-          <h2 className="font-display text-[38px] md:text-[48px] font-bold text-ink tracking-tight leading-tight">
-            Engineer. Builder. Researcher.
-          </h2>
+    <section id="about" style={S.section}>
+      <div className="orb" style={{ width:500, height:300, right:0, top:"40%", background:"radial-gradient(circle, rgba(99,102,241,0.08), transparent 70%)" }} />
+      <div style={S.inner}>
+        <motion.div {...inView()} style={{ marginBottom:52 }}>
+          <span className="section-label" style={{ marginBottom:12 }}>01 — About</span>
+          <h2 style={S.h2}>Engineer. Builder. Researcher.</h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 items-start">
-
-          {/* Left: narrative */}
+        <div style={{ ...S.grid }} className="about-grid">
           <div>
-            <motion.p {...inView(0.1)} className="text-[16px] text-muted-light leading-[1.8] mb-5">
-              I&apos;m <span className="text-ink font-medium">Iyanuoluwa Enoch Oke</span> — an
-              independent Robotics &amp; AI Systems Engineer building systems at the
-              intersection of robotics, computer vision, and artificial intelligence.
+            <motion.p {...inView(0.1)} style={S.p}>
+              I&apos;m <strong style={{ color:"#F0F0F8", fontWeight:500 }}>Iyanuoluwa Enoch Oke</strong> — an
+              independent Robotics &amp; AI Systems Engineer building systems at the intersection
+              of robotics, computer vision, and artificial intelligence.
             </motion.p>
-            <motion.p {...inView(0.2)} className="text-[16px] text-muted-light leading-[1.8] mb-5">
-              My work spans the full stack of intelligent systems: from low-level motor
-              control and sensor fusion in ROS2 environments to high-level AI decision
-              layers using modern deep learning architectures and multi-agent frameworks.
+            <motion.p {...inView(0.2)} style={S.p}>
+              My work spans the full stack of intelligent systems: from low-level motor control
+              and sensor fusion in ROS2 environments to high-level AI decision layers using
+              modern deep learning architectures and multi-agent frameworks.
             </motion.p>
-            <motion.p {...inView(0.3)} className="text-[16px] text-muted-light leading-[1.8] mb-8">
+            <motion.p {...inView(0.3)} style={{ ...S.p, marginBottom:28 }}>
               I don&apos;t just build demos — I ship production-grade systems. Sentinel Quant
-              runs live on real capital. Signlytic AI achieves 100% Top-1 accuracy on 5,203
-              BSL signs. Every project is engineered to production standard.
+              is a live-deployed AI trading system, publicly running in paper mode on Alpaca
+              with full system activity. Signlytic AI is a bidirectional BSL translation
+              system engineered end-to-end. Every project is built to production standard.
             </motion.p>
-
-            {/* Highlights list */}
-            <motion.div {...inView(0.4)} className="grid grid-cols-1 gap-2.5">
-              {highlights.map(({ icon, text }) => (
-                <div key={text} className="flex items-center gap-3 text-[14px] text-muted-light">
-                  <span className="text-accent text-xs">{icon}</span>
-                  {text}
+            <motion.div {...inView(0.4)} style={{ display:"flex", flexDirection:"column", gap:10 }}>
+              {highlights.map((h) => (
+                <div key={h} style={{ display:"flex", alignItems:"center", gap:10, fontSize:14, color:"#94A3B8", fontFamily:"'DM Sans',sans-serif" }}>
+                  <span style={{ color:"#6366F1", fontSize:10, flexShrink:0 }}>◈</span>
+                  {h}
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: focus areas grid */}
-          <motion.div {...inView(0.2)}>
-            <div className="p-6 rounded-2xl border border-white/[0.07] bg-surface">
-              <p className="text-[12px] font-mono text-muted mb-5 tracking-widest uppercase">Areas of Focus</p>
-              <div className="flex flex-wrap gap-2">
-                {focus.map((f) => (
-                  <span key={f} className="skill-chip">{f}</span>
-                ))}
+          <motion.div {...inView(0.15)}>
+            <div style={S.card}>
+              <p style={{ fontSize:11, fontFamily:"'JetBrains Mono',monospace", color:"#64748B", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:16 }}>Areas of Focus</p>
+              <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+                {focus.map(f => <span key={f} className="skill-chip">{f}</span>)}
               </div>
-            </div>
-
-            {/* Quick stats card */}
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {[
-                { n: "5,203", sub: "BSL signs recognised" },
-                { n: "$1K+", sub: "Live trading capital" },
-                { n: "15+", sub: "GitHub projects" },
-              ].map(({ n, sub }) => (
-                <div key={sub} className="p-4 rounded-xl border border-white/[0.07] bg-surface text-center">
-                  <p className="font-display font-bold text-[22px] text-accent-light tracking-tight">{n}</p>
-                  <p className="text-[11px] text-muted font-mono mt-1 leading-tight">{sub}</p>
-                </div>
-              ))}
             </div>
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .about-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }

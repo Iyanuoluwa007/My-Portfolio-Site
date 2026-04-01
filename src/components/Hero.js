@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
 const fadeUp = (delay = 0) => ({
@@ -12,8 +11,8 @@ const fadeUp = (delay = 0) => ({
 
 const stats = [
   { value: "15+", label: "Projects built" },
-  { value: "3+", label: "Years building" },
-  { value: "100%", label: "Top-1 accuracy" },
+  { value: "5+", label: "Years building" },
+  { value: "10+", label: "Live deployments" },
 ];
 
 const roles = ["Robotics Engineer", "AI Systems Engineer", "Computer Vision"];
@@ -22,161 +21,279 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        overflow: "hidden",
+        backgroundColor: "#08080F",
+      }}
     >
-      {/* Background grid */}
-      <div className="absolute inset-0 dot-grid-bg opacity-100" />
+      {/* Dot grid background */}
+      <div className="dot-grid-bg" style={{ position: "absolute", inset: 0, zIndex: 0 }} />
 
       {/* Gradient orbs */}
-      <div
-        className="orb w-[600px] h-[600px] -top-32 -left-40 opacity-[0.12]"
-        style={{ background: "radial-gradient(circle, #6366F1, transparent 70%)" }}
-      />
-      <div
-        className="orb w-[400px] h-[400px] top-1/2 right-0 opacity-[0.07]"
-        style={{ background: "radial-gradient(circle, #818CF8, transparent 70%)" }}
-      />
+      <div className="orb" style={{
+        width: 600, height: 600, top: -120, left: -160,
+        background: "radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%)",
+      }} />
+      <div className="orb" style={{
+        width: 400, height: 400, top: "50%", right: -60,
+        background: "radial-gradient(circle, rgba(129,140,248,0.1), transparent 70%)",
+      }} />
 
-      {/* Fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#08080F] to-transparent" />
+      {/* Fade bottom */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, height: 120,
+        background: "linear-gradient(to top, #08080F, transparent)", zIndex: 1,
+        pointerEvents: "none",
+      }} />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 w-full">
-        <div className="grid lg:grid-cols-[1fr_340px] gap-16 items-center">
+      {/* Main content */}
+      <div style={{
+        position: "relative", zIndex: 2,
+        width: "100%", maxWidth: 1152,
+        margin: "0 auto",
+        padding: "128px 24px 80px",
+      }}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr auto",
+          gap: 64,
+          alignItems: "center",
+        }}>
 
-          {/* Left: Text content */}
-          <div>
+          {/* Left: text */}
+          <div style={{ minWidth: 0 }}>
+
             {/* Available badge */}
-            <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 mb-8">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.1] bg-white/[0.04] text-[11.5px] font-mono text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink-dot" />
+            <motion.div {...fadeUp(0.05)} style={{ marginBottom: 28 }}>
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "6px 14px", borderRadius: 100,
+                border: "1px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.04)",
+                fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace",
+                color: "#34D399",
+              }}>
+                <span className="blink-dot" style={{
+                  width: 6, height: 6, borderRadius: "50%",
+                  background: "#34D399", flexShrink: 0,
+                }} />
                 Available for opportunities
               </div>
             </motion.div>
 
-            {/* Main heading */}
-            <motion.h1
-              {...fadeUp(0.2)}
-              className="font-display text-[52px] md:text-[68px] lg:text-[76px] font-bold leading-[1.0] tracking-[-0.03em] text-ink mb-6"
-            >
+            {/* Headline */}
+            <motion.h1 {...fadeUp(0.15)} style={{
+              fontFamily: "'Space Grotesk', system-ui, sans-serif",
+              fontSize: "clamp(42px, 6vw, 76px)",
+              fontWeight: 700,
+              lineHeight: 1.02,
+              letterSpacing: "-0.03em",
+              color: "#F0F0F8",
+              margin: "0 0 20px",
+            }}>
               Building{" "}
-              <span className="text-transparent bg-clip-text"
-                style={{ backgroundImage: "linear-gradient(135deg, #6366F1 0%, #A5B4FC 50%, #818CF8 100%)" }}>
+              <span style={{
+                backgroundImage: "linear-gradient(135deg, #6366F1 0%, #A5B4FC 50%, #818CF8 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
                 Intelligent
               </span>
-              <br />
-              Machines.
+              <br />Machines.
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p
-              {...fadeUp(0.35)}
-              className="text-[17px] text-muted-light leading-relaxed max-w-xl mb-4 font-light"
-            >
+            <motion.p {...fadeUp(0.28)} style={{
+              fontSize: 17, color: "#94A3B8", lineHeight: 1.75,
+              maxWidth: 560, margin: "0 0 18px",
+              fontFamily: "'DM Sans', system-ui, sans-serif",
+              fontWeight: 300,
+            }}>
               Independent Robotics &amp; AI Systems Engineer specialising in
               autonomous systems, computer vision, and AI-driven robotics.
               Turning research into real-world deployments.
             </motion.p>
 
             {/* Role tags */}
-            <motion.div {...fadeUp(0.45)} className="flex flex-wrap gap-2 mb-10">
+            <motion.div {...fadeUp(0.38)} style={{
+              display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 32,
+            }}>
               {roles.map((r) => (
                 <span key={r} className="tag">{r}</span>
               ))}
             </motion.div>
 
             {/* CTAs */}
-            <motion.div {...fadeUp(0.55)} className="flex flex-wrap gap-4">
-              <Link
-                href="#projects"
-                className="px-6 py-3 bg-accent hover:bg-accent-light text-white font-medium text-[14px] rounded-xl shadow-glow-sm transition-all duration-200 hover:-translate-y-0.5"
+            <motion.div {...fadeUp(0.48)} style={{
+              display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 48,
+            }}>
+              <Link href="#projects" style={{
+                padding: "12px 24px",
+                background: "#6366F1",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: 14,
+                borderRadius: 12,
+                textDecoration: "none",
+                boxShadow: "0 0 20px rgba(99,102,241,0.25)",
+                transition: "background 0.2s, transform 0.15s",
+                display: "inline-block",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#818CF8"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#6366F1"; e.currentTarget.style.transform = "translateY(0)"; }}
               >
                 View My Work
               </Link>
-              <Link
-                href="#contact"
-                className="px-6 py-3 bg-white/[0.05] hover:bg-white/[0.09] text-ink border border-white/[0.1] font-medium text-[14px] rounded-xl transition-all duration-200"
+              <Link href="#contact" style={{
+                padding: "12px 24px",
+                background: "rgba(255,255,255,0.05)",
+                color: "#F0F0F8",
+                fontWeight: 500,
+                fontSize: 14,
+                borderRadius: 12,
+                textDecoration: "none",
+                border: "1px solid rgba(255,255,255,0.1)",
+                transition: "background 0.2s",
+                display: "inline-block",
+              }}
+                onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.09)"}
+                onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.05)"}
               >
                 Get in Touch
               </Link>
             </motion.div>
 
-            {/* Stats row */}
-            <motion.div
-              {...fadeUp(0.7)}
-              className="flex gap-8 mt-14 pt-10 border-t border-white/[0.07]"
-            >
+            {/* Stats */}
+            <motion.div {...fadeUp(0.6)} style={{
+              display: "flex",
+              gap: 40,
+              paddingTop: 28,
+              borderTop: "1px solid rgba(255,255,255,0.08)",
+              flexWrap: "wrap",
+            }}>
               {stats.map(({ value, label }) => (
-                <div key={label}>
-                  <div className="font-display text-[28px] font-bold text-ink tracking-tight">
+                <div key={label} style={{ minWidth: 64 }}>
+                  <div style={{
+                    fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                    fontSize: 28,
+                    fontWeight: 700,
+                    color: "#F0F0F8",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1,
+                  }}>
                     {value}
                   </div>
-                  <div className="text-[12px] text-muted font-sans mt-0.5">{label}</div>
+                  <div style={{
+                    fontSize: 12,
+                    color: "#64748B",
+                    fontFamily: "'DM Sans', system-ui, sans-serif",
+                    marginTop: 5,
+                    whiteSpace: "nowrap",
+                  }}>
+                    {label}
+                  </div>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: Avatar card */}
+          {/* Right: photo card — hidden on small screens via JS */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="hidden lg:flex justify-center"
+            style={{ flexShrink: 0 }}
+            className="hero-photo-col"
           >
-            <div className="relative">
+            <div style={{ position: "relative" }}>
               {/* Glow ring */}
-              <div className="absolute inset-[-12px] rounded-[28px] opacity-25"
-                style={{ background: "linear-gradient(135deg, #6366F1, #818CF8)", filter: "blur(20px)" }} />
+              <div style={{
+                position: "absolute", inset: -12, borderRadius: 28,
+                background: "linear-gradient(135deg, #6366F1, #818CF8)",
+                filter: "blur(20px)", opacity: 0.22,
+              }} />
 
-              {/* Card */}
-              <div className="relative rounded-[24px] overflow-hidden border border-white/[0.1] bg-surface shadow-card"
-                style={{ width: 300, height: 340 }}>
-                <Image
+              {/* Photo card */}
+              <div style={{
+                position: "relative",
+                width: 280, height: 320,
+                borderRadius: 20,
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.1)",
+                background: "#0F0F1B",
+                boxShadow: "0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)",
+              }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/me.png"
                   alt="Iyanuoluwa Oke"
-                  fill
-                  className="object-cover object-top"
-                  priority
+                  width={280}
+                  height={320}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
                 />
-                {/* Card overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#08080F]/80 via-transparent to-transparent" />
-
-                {/* Card bottom info */}
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="font-display font-semibold text-[15px] text-ink">
+                {/* Overlay */}
+                <div style={{
+                  position: "absolute", bottom: 0, left: 0, right: 0,
+                  background: "linear-gradient(to top, rgba(8,8,15,0.85), transparent)",
+                  padding: "20px 18px 18px",
+                }}>
+                  <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 14, color: "#F0F0F8", margin: 0 }}>
                     Iyanuoluwa Oke
                   </p>
-                  <p className="text-[12px] text-muted-light font-mono mt-0.5">
+                  <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "#94A3B8", margin: "3px 0 0" }}>
                     Robotics &amp; AI Engineer
                   </p>
                 </div>
               </div>
 
-              {/* Floating tech badge */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-8 top-8 glass rounded-xl px-3.5 py-2.5 shadow-card"
-              >
-                <p className="text-[10px] font-mono text-muted-light mb-0.5">BSL Accuracy</p>
-                <p className="font-display font-bold text-[18px] text-ink">100%</p>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -left-10 bottom-16 glass rounded-xl px-3.5 py-2.5 shadow-card"
-              >
-                <p className="text-[10px] font-mono text-muted-light mb-0.5">Live system</p>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink-dot" />
-                  <p className="font-display font-semibold text-[13px] text-ink">Sentinel Quant</p>
+              {/* Floating badge 1 — specialisation */}
+              <div className="float-anim glass" style={{
+                position: "absolute", top: 12, right: -88,
+                borderRadius: 12, padding: "10px 14px",
+                boxShadow: "0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4)",
+                minWidth: 152,
+              }}>
+                <p style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: "#64748B", margin: "0 0 7px" }}>Specialisation</p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                  {["Robotics Engineer", "AI Systems Engineer", "Computer Vision"].map((r) => (
+                    <span key={r} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5, fontFamily: "'DM Sans',sans-serif", fontWeight: 500, color: "#A5B4FC" }}>
+                      <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#6366F1", flexShrink: 0 }} />
+                      {r}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
+              </div>
+
+              {/* Floating badge 2 — status */}
+              <div className="float-anim-slow glass" style={{
+                position: "absolute", bottom: 48, left: -72,
+                borderRadius: 12, padding: "10px 14px",
+                boxShadow: "0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4)",
+                minWidth: 128,
+              }}>
+                <p style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: "#64748B", margin: "0 0 4px" }}>Status</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <span className="blink-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: "#34D399", flexShrink: 0 }} />
+                  <p style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 12, color: "#F0F0F8", margin: 0 }}>Open to work</p>
+                </div>
+              </div>
             </div>
           </motion.div>
+
         </div>
       </div>
+
+      {/* Responsive: hide photo col on small screens */}
+      <style>{`
+        @media (max-width: 900px) {
+          .hero-photo-col { display: none !important; }
+        }
+      `}</style>
     </section>
   );
 }
