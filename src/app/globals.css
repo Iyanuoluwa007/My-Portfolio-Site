@@ -1,34 +1,168 @@
+/* === Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* === Global Theme === */
-html, body {
-  font-family: system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
+/* === CSS Variables === */
+:root {
+  --font-dm-sans: "DM Sans", system-ui, sans-serif;
+  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* === Base === */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
   scroll-behavior: smooth;
-  color: white; /* default text color */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* === Global Background === */
 body {
-  background-image: url("/background.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* keeps background steady on scroll */
+  background-color: #08080F;
+  color: #F0F0F8;
+  font-family: var(--font-dm-sans);
+  overflow-x: hidden;
 }
 
-/* === Reusable Glow Effects === */
-.glow {
-  box-shadow: 0 0 30px rgba(192, 132, 252, 0.8);
+/* === Selection === */
+::selection { background: rgba(99,102,241,0.3); color: #F0F0F8; }
+
+/* === Scrollbar === */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #08080F; }
+::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.7); }
+
+/* === Section spacing === */
+.section { padding: 120px 0; }
+
+/* === Noise texture overlay === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  opacity: 0.4;
 }
 
-.glow-hover {
-  transition: all 0.25s ease;
-}
-.glow-hover:hover {
-  box-shadow: 0 0 40px rgba(192, 132, 252, 1);
-  transform: translateY(-2px) scale(1.02);
+/* === Dot grid background for hero === */
+.dot-grid-bg {
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
+/* === Gradient orb === */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
 
+/* === Glass card === */
+.glass {
+  background: rgba(15,15,27,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* === Accent line === */
+.accent-line {
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #6366F1, #818CF8);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+/* === Tag pill === */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-family: var(--font-jetbrains-mono);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(99,102,241,0.3);
+  color: #818CF8;
+  background: rgba(99,102,241,0.07);
+}
+
+/* === Section label === */
+.section-label {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6366F1;
+  font-weight: 500;
+}
+
+/* === Skill chip === */
+.skill-chip {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  color: #94A3B8;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.skill-chip:hover {
+  border-color: rgba(99,102,241,0.4);
+  background: rgba(99,102,241,0.08);
+  color: #C7D2FE;
+}
+
+/* === Project card === */
+.project-card {
+  background: #0F0F1B;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  border-color: rgba(99,102,241,0.35);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.2);
+  transform: translateY(-3px);
+}
+
+/* === Available badge pulse === */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.blink-dot { animation: blink 2s ease-in-out infinite; }
+
+/* === Display font utility === */
+.font-display { font-family: var(--font-space-grotesk); }
+.font-mono { font-family: var(--font-jetbrains-mono); }
+.font-sans { font-family: var(--font-dm-sans); }
+
+/* === Colour utilities === */
+.text-ink { color: #F0F0F8; }
+.text-muted { color: #64748B; }
+.text-muted-light { color: #94A3B8; }
+.text-accent { color: #6366F1; }
+.text-accent-light { color: #818CF8; }
+.bg-surface { background-color: #0F0F1B; }
+.bg-surface-2 { background-color: #161625; }
+.shadow-card { box-shadow: 0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04); }
+.shadow-glow-sm { box-shadow: 0 0 20px rgba(99,102,241,0.2); }
+.shadow-glow-md { box-shadow: 0 0 40px rgba(99,102,241,0.3); }

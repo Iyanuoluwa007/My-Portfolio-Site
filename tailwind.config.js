@@ -6,15 +6,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#0A0A0A",
-        light: "#EDEDED",
+        bg: "#08080F",
+        surface: "#0F0F1B",
+        "surface-2": "#161625",
+        accent: "#6366F1",
+        "accent-light": "#818CF8",
+        ink: "#F0F0F8",
+        muted: "#64748B",
+        "muted-light": "#94A3B8",
       },
-      boxShadow: {
-        glow: "0 0 30px rgba(192, 132, 252, 0.6)",      // default glow
-        glowLg: "0 0 50px rgba(192, 132, 252, 0.9)",   // stronger hover glow
+      animation: {
+        "float": "float 6s ease-in-out infinite",
+        "pulse-slow": "pulse 4s cubic-bezier(0.4,0,0.6,1) infinite",
       },
-      backgroundImage: {
-        "radial-fade": "radial-gradient(circle at center, rgba(139,92,246,0.3), transparent 70%)",
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
       },
     },
   },
