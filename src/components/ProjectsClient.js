@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -9,28 +8,83 @@ const inView = (delay = 0) => ({
   transition: { duration: 0.55, delay, ease: [0.21, 0.47, 0.32, 0.98] },
 });
 
-const langColor = {
-  Python:"#3572A5", JavaScript:"#F7DF1E", TypeScript:"#3178C6",
-  C:"#555555", "Jupyter Notebook":"#DA5B0B", default:"#6366F1",
-};
+const projects = [
+  {
+    title: "Signlytic AI",
+    subtitle: "Bidirectional British Sign Language Translation System",
+    description: "Real-time BSL translation system using MediaPipe Holistic and Video-SWIN-T trained on 5,200+ sign sequences — achieving 100% Top-1 accuracy. Deployed as a Chrome extension with a Three.js 3D avatar and four caption integrations.",
+    tags: ["Python", "MediaPipe", "PyTorch", "FastAPI", "Chrome Extension"],
+    links: [
+      { label: "Repository", href: "https://github.com/Iyanuoluwa007/Signlytic-Overlay" },
+      { label: "Website", href: "https://signlytic-ai-website.vercel.app" },
+    ],
+  },
+  {
+    title: "Sentinel Quant v3.2",
+    subtitle: "Live AI Algorithmic Trading System",
+    description: "Dual-broker AI trading system managing live capital across Alpaca and Trading 212 with Docker orchestration, VIX regime detection, three autonomous strategy sleeves, and a 138-check automated audit.",
+    tags: ["Python", "Alpaca API", "Trading212", "Docker", "Next.js"],
+    links: [
+      { label: "Repository", href: "https://github.com/Iyanuoluwa007/Sentinel-Quant_PE" },
+      { label: "Demo", href: "https://sentinel-quant-dashboard.vercel.app" },
+    ],
+  },
+  {
+    title: "Autonomous Robot Perception Stack",
+    subtitle: "CARLA Simulation",
+    description: "ROS 2 perception and localisation stack integrating YOLOv11, ByteTrack, StrongSORT, and visual SLAM in CARLA — sustaining 25–35 FPS with ~0.9m median localisation error in urban driving scenes.",
+    tags: ["ROS 2", "YOLOv11", "SLAM", "ByteTrack", "Python"],
+    links: [
+      { label: "Repository", href: "https://github.com/Iyanuoluwa007/Carla_project-YOLO-SSD" },
+    ],
+  },
+  {
+    title: "Tracked 6-DOF Robotic Arm",
+    subtitle: "ZetaBot",
+    description: "Camera-assisted 6-DOF robotic arm built with Arduino Nano, ESP32, and a ROS serial bridge on a solar-supported power architecture — achieving sub-2° RMS joint tracking error during tested motion profiles.",
+    tags: ["C++", "Arduino", "ESP32", "ROS", "Embedded"],
+    links: [
+      { label: "Repository", href: "https://github.com/Iyanuoluwa007/zetabot" },
+    ],
+  },
+  {
+    title: "AgentFoundry",
+    subtitle: "Meta-Agent Workflow Compiler",
+    description: "Meta-agent framework that compiles YAML-defined specifications into canonical JSON workflows, Mermaid diagrams, and runnable Python agents — with deterministic, auditable validation and code generation pipelines.",
+    tags: ["Python", "YAML", "Pydantic", "Jinja2", "Mermaid"],
+    links: [
+      { label: "Repository", href: "https://github.com/Iyanuoluwa007/AgentFoundry" },
+    ],
+  },
+  {
+    title: "Nexus",
+    subtitle: "Multi-Agent Code Refactoring System",
+    description: "AI-powered swarm system for autonomous codebase analysis, refactoring, testing, and documentation generation using multi-agent orchestration.",
+    tags: ["Python", "Multi-Agent", "LLM", "Automation"],
+    links: [
+      { label: "Repository", href: "https://github.com/Iyanuoluwa007/Nexus" },
+    ],
+  },
+];
 
-export default function ProjectsClient({ repos }) {
-  const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? repos : repos.slice(0, 6);
-
+export default function ProjectsClient() {
   return (
     <section id="projects" style={{ position:"relative", padding:"96px 0", backgroundColor:"#08080F" }}>
       <div style={{ maxWidth:1152, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:1 }}>
 
+        {/* Header */}
         <motion.div {...inView()} style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:48, flexWrap:"wrap", gap:16 }}>
           <div>
             <span className="section-label" style={{ marginBottom:12 }}>03 — Projects</span>
             <h2 style={{ fontFamily:"'Space Grotesk',system-ui,sans-serif", fontSize:"clamp(28px,4vw,44px)", fontWeight:700, color:"#F0F0F8", letterSpacing:"-0.02em", margin:0 }}>
               Open Source Work
             </h2>
+            <p style={{ fontSize:15, color:"#64748B", marginTop:8, fontFamily:"'DM Sans',sans-serif", fontWeight:300 }}>
+              A focused selection of production systems and engineering experiments.
+            </p>
           </div>
           <a href="https://github.com/Iyanuoluwa007" target="_blank" rel="noopener noreferrer"
-            style={{ display:"flex", alignItems:"center", gap:7, fontSize:13, color:"#94A3B8", textDecoration:"none", border:"1px solid rgba(255,255,255,0.09)", padding:"9px 16px", borderRadius:12, transition:"all 0.2s" }}
+            style={{ display:"flex", alignItems:"center", gap:7, fontSize:13, color:"#94A3B8", textDecoration:"none", border:"1px solid rgba(255,255,255,0.09)", padding:"9px 16px", borderRadius:12, transition:"all 0.2s", whiteSpace:"nowrap" }}
             onMouseEnter={e => { e.currentTarget.style.color="#F0F0F8"; e.currentTarget.style.borderColor="rgba(255,255,255,0.18)"; }}
             onMouseLeave={e => { e.currentTarget.style.color="#94A3B8"; e.currentTarget.style.borderColor="rgba(255,255,255,0.09)"; }}
           >
@@ -39,69 +93,83 @@ export default function ProjectsClient({ repos }) {
           </a>
         </motion.div>
 
-        {repos.length === 0 ? (
-          <div className="proj-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:14 }}>
-            {[...Array(6)].map((_,i) => (
-              <div key={i} style={{ height:160, borderRadius:16, border:"1px solid rgba(255,255,255,0.06)", background:"#0F0F1B" }} />
-            ))}
-          </div>
-        ) : (
-          <>
-            <div className="proj-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:14 }}>
-              {visible.map((repo, i) => (
-                <motion.a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer"
-                  {...inView(i * 0.05)}
-                  className="project-card"
-                  style={{ padding:22 }}
-                >
-                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:10 }}>
-                    <div style={{ width:36, height:36, borderRadius:10, border:"1px solid rgba(255,255,255,0.09)", background:"rgba(255,255,255,0.03)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-                      <svg width="15" height="15" viewBox="0 0 16 16" fill="#6366F1"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>
-                    </div>
-                    <svg style={{ color:"#64748B", flexShrink:0, marginTop:4, opacity:0 }} className="proj-arrow" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-                  </div>
-                  <div style={{ flex:1, marginTop:8 }}>
-                    <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:600, fontSize:14, color:"#F0F0F8", margin:"0 0 6px", lineHeight:1.3 }}>
-                      {repo.name.replace(/-/g," ").replace(/_/g," ")}
-                    </h3>
-                    <p style={{ fontSize:12.5, color:"#64748B", lineHeight:1.6, margin:0, overflow:"hidden", display:"-webkit-box", WebkitLineClamp:3, WebkitBoxOrient:"vertical", fontFamily:"'DM Sans',sans-serif" }}>
-                      {repo.description || "No description available."}
-                    </p>
-                  </div>
-                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", paddingTop:12, borderTop:"1px solid rgba(255,255,255,0.05)" }}>
-                    {repo.language ? (
-                      <span style={{ display:"flex", alignItems:"center", gap:6, fontSize:11.5, color:"#64748B", fontFamily:"'JetBrains Mono',monospace" }}>
-                        <span style={{ width:8, height:8, borderRadius:"50%", background:langColor[repo.language]||langColor.default, flexShrink:0 }} />
-                        {repo.language}
-                      </span>
-                    ) : <span />}
-                    <span style={{ display:"flex", alignItems:"center", gap:4, fontSize:11, color:"#64748B", fontFamily:"'JetBrains Mono',monospace" }}>
-                      <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-                      {repo.stargazers_count}
-                    </span>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
+        {/* Cards grid */}
+        <div className="proj-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:16 }}>
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.title}
+              {...inView(i * 0.07)}
+              style={{
+                background:"#0F0F1B",
+                border:"1px solid rgba(255,255,255,0.07)",
+                borderRadius:16,
+                padding:24,
+                display:"flex",
+                flexDirection:"column",
+                gap:14,
+                transition:"border-color 0.25s, box-shadow 0.25s, transform 0.2s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(99,102,241,0.35)"; e.currentTarget.style.boxShadow="0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.2)"; e.currentTarget.style.transform="translateY(-3px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"; e.currentTarget.style.boxShadow="none"; e.currentTarget.style.transform="translateY(0)"; }}
+            >
+              {/* Title block */}
+              <div>
+                <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:600, fontSize:15, color:"#F0F0F8", margin:"0 0 4px", lineHeight:1.3 }}>
+                  {project.title}
+                </h3>
+                <p style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:11, color:"#6366F1", margin:0 }}>
+                  {project.subtitle}
+                </p>
+              </div>
 
-            {repos.length > 6 && (
-              <motion.div {...inView(0.3)} style={{ display:"flex", justifyContent:"center", marginTop:32 }}>
-                <button onClick={() => setShowAll(!showAll)}
-                  style={{ padding:"11px 24px", border:"1px solid rgba(255,255,255,0.1)", background:"transparent", color:"#94A3B8", fontSize:13, borderRadius:12, cursor:"pointer", transition:"all 0.2s", fontFamily:"'DM Sans',sans-serif" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.2)"; e.currentTarget.style.color="#F0F0F8"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.1)"; e.currentTarget.style.color="#94A3B8"; }}
-                >
-                  {showAll ? "Show less" : `Show ${repos.length - 6} more`}
-                </button>
-              </motion.div>
-            )}
-          </>
-        )}
+              {/* Description */}
+              <p style={{ fontSize:13, color:"#64748B", lineHeight:1.65, margin:0, fontFamily:"'DM Sans',sans-serif", flex:1 }}>
+                {project.description}
+              </p>
+
+              {/* Tags */}
+              <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                {project.tags.map(t => (
+                  <span key={t} className="tag" style={{ fontSize:10.5 }}>{t}</span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div style={{ display:"flex", gap:12, paddingTop:10, borderTop:"1px solid rgba(255,255,255,0.05)" }}>
+                {project.links.map(({ label, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                    style={{ display:"flex", alignItems:"center", gap:5, fontSize:12.5, color:"#6366F1", textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontWeight:500, transition:"color 0.2s" }}
+                    onMouseEnter={e => e.currentTarget.style.color="#A5B4FC"}
+                    onMouseLeave={e => e.currentTarget.style.color="#6366F1"}
+                  >
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* View all button */}
+        <motion.div {...inView(0.4)} style={{ display:"flex", justifyContent:"center", marginTop:32 }}>
+          <a
+            href="https://github.com/Iyanuoluwa007"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display:"flex", alignItems:"center", gap:8, padding:"11px 24px", border:"1px solid rgba(255,255,255,0.1)", background:"transparent", color:"#94A3B8", fontSize:13, borderRadius:12, textDecoration:"none", transition:"all 0.2s", fontFamily:"'DM Sans',sans-serif" }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.2)"; e.currentTarget.style.color="#F0F0F8"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.1)"; e.currentTarget.style.color="#94A3B8"; }}
+          >
+            View all projects on GitHub
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </motion.div>
       </div>
+
       <style>{`
         @media (max-width: 900px) { .proj-grid { grid-template-columns: repeat(2,1fr) !important; } }
         @media (max-width: 560px) { .proj-grid { grid-template-columns: 1fr !important; } }
-        .project-card:hover .proj-arrow { opacity: 1 !important; }
       `}</style>
     </section>
   );

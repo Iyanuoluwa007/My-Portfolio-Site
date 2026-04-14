@@ -54,8 +54,13 @@ export default function About() {
             </motion.p>
             <motion.p {...inView(0.3)} style={{ ...S.p, marginBottom:28 }}>
               I don&apos;t just build demos — I ship production-grade systems. Sentinel Quant
-              is a live-deployed AI trading system, publicly running in paper mode on Alpaca
-              with full system activity. Signlytic AI is a bidirectional BSL translation
+              is a live-deployed AI algorithmic trading system managing real capital across
+              two brokers, with full system monitoring, automated audit pipelines, and a
+              private React dashboard.{" "}
+              <a href="https://signlytic-ai-website.vercel.app" target="_blank" rel="noopener noreferrer"
+                style={{ color:"#818CF8", textDecoration:"none", borderBottom:"1px solid rgba(129,140,248,0.4)" }}>
+                Signlytic AI
+              </a>{" "}is a bidirectional BSL translation
               system engineered end-to-end. Every project is built to production standard.
             </motion.p>
             <motion.div {...inView(0.4)} style={{ display:"flex", flexDirection:"column", gap:10 }}>
