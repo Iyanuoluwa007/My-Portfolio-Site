@@ -44,7 +44,7 @@ export default function Contact() {
 
           {/* Left: CTA */}
           <div>
-            <motion.span {...inView()} className="section-label" style={{ marginBottom:14 }}>04 — Contact</motion.span>
+            <motion.span {...inView()} className="section-label" style={{ marginBottom:14 }}>05 — Contact</motion.span>
             <motion.h2 {...inView(0.1)} style={{ fontFamily:"'Space Grotesk',system-ui,sans-serif", fontSize:"clamp(32px,5vw,56px)", fontWeight:700, color:"#F0F0F8", letterSpacing:"-0.025em", lineHeight:1.05, margin:"0 0 20px" }}>
               Let&apos;s build<br />
               <span style={{ backgroundImage:"linear-gradient(135deg, #6366F1, #A5B4FC)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
