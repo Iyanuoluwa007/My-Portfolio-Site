@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import FeaturedProjectCard from "./FeaturedProjectCard";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28, filter: "blur(10px)" },
@@ -17,7 +18,14 @@ const stats = [
 
 const roles = ["Robotics Engineer", "AI Systems Engineer", "Computer Vision"];
 
-const techStack = ["Python", "C++", "ROS2", "PyTorch", "OpenCV", "Docker"];
+const techStack = [
+  { abbr: "Py", name: "Python" },
+  { abbr: "C++", name: "C++" },
+  { abbr: "ROS2", name: "ROS 2" },
+  { abbr: "PyT", name: "PyTorch" },
+  { abbr: "CV", name: "OpenCV" },
+  { abbr: "Dkr", name: "Docker" },
+];
 
 export default function Hero() {
   return (
@@ -86,10 +94,15 @@ export default function Hero() {
               </div>
             </motion.div>
 
+            {/* Category label */}
+            <motion.p {...fadeUp(0.1)} className="section-label" style={{ marginBottom: 18, letterSpacing: "0.2em", fontSize: 12 }}>
+              AI Robotics Engineer
+            </motion.p>
+
             {/* Headline */}
             <motion.h1 {...fadeUp(0.15)} style={{
               fontFamily: "'Space Grotesk', system-ui, sans-serif",
-              fontSize: "clamp(42px, 6vw, 76px)",
+              fontSize: "clamp(44px, 6.5vw, 84px)",
               fontWeight: 700,
               lineHeight: 1.02,
               letterSpacing: "-0.03em",
@@ -133,7 +146,7 @@ export default function Hero() {
             <motion.div {...fadeUp(0.48)} style={{
               display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 48,
             }}>
-              <Link href="#projects" style={{
+              <Link href="#projects" className="btn-press" style={{
                 padding: "12px 24px",
                 background: "#6366F1",
                 color: "#fff",
@@ -143,14 +156,17 @@ export default function Hero() {
                 textDecoration: "none",
                 boxShadow: "0 0 20px rgba(99,102,241,0.25)",
                 transition: "background 0.2s, transform 0.15s, box-shadow 0.25s",
-                display: "inline-block",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
               }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#818CF8"; e.currentTarget.style.transform = "translateY(-1px) scale(1.02)"; e.currentTarget.style.boxShadow = "0 0 32px rgba(99,102,241,0.45)"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#6366F1"; e.currentTarget.style.transform = "translateY(0) scale(1)"; e.currentTarget.style.boxShadow = "0 0 20px rgba(99,102,241,0.25)"; }}
               >
                 View My Work
+                <svg className="cta-arrow" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5L13.5 8 9 12.5" /></svg>
               </Link>
-              <Link href="#contact" style={{
+              <Link href="#contact" className="btn-press" style={{
                 padding: "12px 24px",
                 background: "rgba(255,255,255,0.05)",
                 color: "#F0F0F8",
@@ -159,13 +175,16 @@ export default function Hero() {
                 borderRadius: 12,
                 textDecoration: "none",
                 border: "1px solid rgba(255,255,255,0.1)",
-                transition: "background 0.2s",
-                display: "inline-block",
+                transition: "background 0.2s, border-color 0.2s",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
               }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.09)"}
-                onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.05)"}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.09)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
               >
                 Get in Touch
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5" /><path d="M2.5 4.5L8 9l5.5-4.5" /></svg>
               </Link>
             </motion.div>
 
@@ -211,12 +230,15 @@ export default function Hero() {
               }}>
                 Tech Stack
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {techStack.map((t, i) => (
-                  <span key={t} className="skill-chip float-chip" style={{ animationDelay: `${i * 0.4}s` }}>
-                    {t}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                {techStack.map(({ abbr, name }, i) => (
+                  <span key={name} className="tech-card float-chip" style={{ animationDelay: `${i * 0.4}s` }} title={name} aria-label={name}>
+                    {abbr}
                   </span>
                 ))}
+                <Link href="#skills" className="tech-card float-chip" style={{ animationDelay: `${techStack.length * 0.4}s`, cursor: "pointer", fontSize: 16, letterSpacing: 1 }} aria-label="View all skills">
+                  &middot;&middot;&middot;
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -305,6 +327,9 @@ export default function Hero() {
           </motion.div>
 
         </div>
+
+        {/* Featured project carousel */}
+        <FeaturedProjectCard />
       </div>
 
       {/* Responsive: hide photo col on small screens */}

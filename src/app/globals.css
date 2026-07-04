@@ -170,6 +170,71 @@ body::before {
   animation: gradientShift 9s ease-in-out infinite;
 }
 
+/* === Nav links with underline animation === */
+.nav-link {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  color: #94A3B8;
+  text-decoration: none;
+  font-family: "DM Sans", system-ui, sans-serif;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-lighter));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav-link:hover, .nav-link.active { color: #F0F0F8; }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+/* === Tech stack cards === */
+.tech-card {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  color: #A5B4FC;
+  text-decoration: none;
+  cursor: default;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.tech-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99,102,241,0.45);
+  background: rgba(99,102,241,0.10);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.22);
+}
+
+/* === Button micro-interactions === */
+.btn-press:active { transform: scale(0.97) !important; }
+.cta-arrow { display: inline-block; transition: transform 0.2s ease; }
+a:hover .cta-arrow { transform: translateX(3px); }
+
+/* === Focus visibility === */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 /* === Reduced motion: settle all decorative animation === */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

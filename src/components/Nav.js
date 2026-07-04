@@ -2,9 +2,19 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const links = [
+  { href:"#home", id:"home", label:"Home" },
+  { href:"#about", id:"about", label:"About" },
+  { href:"#skills", id:"skills", label:"Skills" },
+  { href:"#projects", id:"projects", label:"Projects" },
+  { href:"#publications", id:"publications", label:"Publications" },
+  { href:"#contact", id:"contact", label:"Contact" },
+];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -12,13 +22,22 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
-    { href:"#about", label:"About" },
-    { href:"#skills", label:"Skills" },
-    { href:"#projects", label:"Projects" },
-    { href:"#publications", label:"Publications" },
-    { href:"#contact", label:"Contact" },
-  ];
+  // Scroll spy: highlight the nav link for the section in view.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    links.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const navStyle = {
     position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
@@ -31,36 +50,34 @@ export default function Nav() {
 
   return (
     <header style={navStyle}>
-      <nav style={{ maxWidth:1152, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0 24px", height:64 }}>
+      <nav style={{ position:"relative", maxWidth:1152, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0 24px", height:64 }}>
 
         {/* Logo */}
-        <Link href="#home" style={{ fontFamily:"'Space Grotesk',system-ui,sans-serif", fontWeight:600, fontSize:15, color:"#F0F0F8", textDecoration:"none", letterSpacing:"-0.01em", display:"flex", alignItems:"center", gap:8 }}>
+        <Link href="#home" style={{ fontFamily:"'Space Grotesk',system-ui,sans-serif", fontWeight:600, fontSize:15, color:"#F0F0F8", textDecoration:"none", letterSpacing:"-0.01em", display:"flex", alignItems:"center", gap:8, position:"relative", zIndex:1 }}>
           <span style={{ fontSize:20, lineHeight:1 }}>🧑🏾‍💻</span>
           Iyanuoluwa Oke
         </Link>
 
-        {/* Desktop nav links */}
-        <div style={{ display:"flex", gap:2 }} className="nav-desktop">
-          {links.map(({ href, label }) => (
-            <Link key={href} href={href} style={{ padding:"8px 16px", fontSize:13.5, color:"#94A3B8", textDecoration:"none", borderRadius:8, transition:"color 0.2s, background 0.2s", fontFamily:"'DM Sans',system-ui,sans-serif" }}
-              onMouseEnter={e => { e.currentTarget.style.color="#F0F0F8"; e.currentTarget.style.background="rgba(255,255,255,0.05)"; }}
-              onMouseLeave={e => { e.currentTarget.style.color="#94A3B8"; e.currentTarget.style.background="transparent"; }}
-            >
+        {/* Desktop nav links, centered */}
+        <div className="nav-desktop" style={{ position:"absolute", left:"50%", top:0, bottom:0, transform:"translateX(-50%)", display:"flex", alignItems:"center", gap:2 }}>
+          {links.map(({ href, id, label }) => (
+            <Link key={href} href={href} className={`nav-link${active === id ? " active" : ""}`}>
               {label}
             </Link>
           ))}
         </div>
 
         {/* Desktop right */}
-        <div style={{ display:"flex", alignItems:"center", gap:12 }} className="nav-desktop">
+        <div style={{ display:"flex", alignItems:"center", gap:12, position:"relative", zIndex:1 }} className="nav-desktop">
           <div style={{ display:"flex", alignItems:"center", gap:6, padding:"6px 13px", borderRadius:100, border:"1px solid rgba(255,255,255,0.09)", background:"rgba(255,255,255,0.03)", fontSize:11.5, fontFamily:"'JetBrains Mono',monospace", color:"#94A3B8" }}>
             <span className="blink-dot" style={{ width:5.5, height:5.5, borderRadius:"50%", background:"#34D399", flexShrink:0 }} />
             Available
           </div>
           <a href="https://drive.google.com/file/d/1QwpycQIutZnM9STD5lv9PMcv4v3nZxjS/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-            style={{ padding:"8px 18px", fontSize:13, fontWeight:500, background:"#6366F1", color:"#fff", borderRadius:10, textDecoration:"none", boxShadow:"0 0 16px rgba(99,102,241,0.2)", transition:"background 0.2s", fontFamily:"'DM Sans',sans-serif" }}
-            onMouseEnter={e => e.currentTarget.style.background="#818CF8"}
-            onMouseLeave={e => e.currentTarget.style.background="#6366F1"}
+            className="btn-press"
+            style={{ padding:"8px 18px", fontSize:13, fontWeight:500, background:"#6366F1", color:"#fff", borderRadius:10, textDecoration:"none", boxShadow:"0 0 16px rgba(99,102,241,0.2)", transition:"background 0.2s, box-shadow 0.25s", fontFamily:"'DM Sans',sans-serif" }}
+            onMouseEnter={e => { e.currentTarget.style.background="#818CF8"; e.currentTarget.style.boxShadow="0 0 24px rgba(99,102,241,0.4)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background="#6366F1"; e.currentTarget.style.boxShadow="0 0 16px rgba(99,102,241,0.2)"; }}
           >
             Download CV
           </a>
@@ -69,7 +86,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button onClick={() => setMenuOpen(!menuOpen)}
           style={{ display:"none", flexDirection:"column", gap:5, padding:8, background:"transparent", border:"none", cursor:"pointer" }}
-          className="nav-mobile" aria-label="Menu"
+          className="nav-mobile" aria-label="Menu" aria-expanded={menuOpen}
         >
           <span style={{ display:"block", width:20, height:1.5, background:"#F0F0F8", borderRadius:1, transition:"all 0.2s", transform: menuOpen ? "rotate(45deg) translateY(6.5px)" : "none" }} />
           <span style={{ display:"block", width:20, height:1.5, background:"#F0F0F8", borderRadius:1, transition:"all 0.2s", opacity: menuOpen ? 0 : 1 }} />
@@ -96,12 +113,12 @@ export default function Nav() {
       )}
 
       <style>{`
-        @media (min-width: 768px) {
+        @media (min-width: 961px) {
           .nav-desktop { display: flex !important; }
           .nav-mobile { display: none !important; }
           .nav-mobile-menu { display: none !important; }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 960px) {
           .nav-desktop { display: none !important; }
           .nav-mobile { display: flex !important; }
         }
