@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 28, filter: "blur(10px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
   transition: { duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] },
 });
 
@@ -16,6 +16,8 @@ const stats = [
 ];
 
 const roles = ["Robotics Engineer", "AI Systems Engineer", "Computer Vision"];
+
+const techStack = ["Python", "C++", "ROS2", "PyTorch", "OpenCV", "Docker"];
 
 export default function Hero() {
   return (
@@ -95,7 +97,7 @@ export default function Hero() {
               margin: "0 0 20px",
             }}>
               Building{" "}
-              <span style={{
+              <span className="animated-gradient-text" style={{
                 backgroundImage: "linear-gradient(135deg, #6366F1 0%, #A5B4FC 50%, #818CF8 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -140,11 +142,11 @@ export default function Hero() {
                 borderRadius: 12,
                 textDecoration: "none",
                 boxShadow: "0 0 20px rgba(99,102,241,0.25)",
-                transition: "background 0.2s, transform 0.15s",
+                transition: "background 0.2s, transform 0.15s, box-shadow 0.25s",
                 display: "inline-block",
               }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#818CF8"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "#6366F1"; e.currentTarget.style.transform = "translateY(0)"; }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#818CF8"; e.currentTarget.style.transform = "translateY(-1px) scale(1.02)"; e.currentTarget.style.boxShadow = "0 0 32px rgba(99,102,241,0.45)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#6366F1"; e.currentTarget.style.transform = "translateY(0) scale(1)"; e.currentTarget.style.boxShadow = "0 0 20px rgba(99,102,241,0.25)"; }}
               >
                 View My Work
               </Link>
@@ -198,6 +200,24 @@ export default function Hero() {
                   </div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* Tech stack */}
+            <motion.div {...fadeUp(0.72)} style={{ marginTop: 36 }}>
+              <p style={{
+                fontSize: 10.5, fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: "0.15em", textTransform: "uppercase",
+                color: "#64748B", margin: "0 0 12px",
+              }}>
+                Tech Stack
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {techStack.map((t, i) => (
+                  <span key={t} className="skill-chip float-chip" style={{ animationDelay: `${i * 0.4}s` }}>
+                    {t}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           </div>
 

@@ -152,3 +152,32 @@ body::before {
 }
 .float-anim { animation: floatY 5s ease-in-out infinite; }
 .float-anim-slow { animation: floatY 7s ease-in-out infinite 1s; }
+
+/* === Gentle float for small chips === */
+@keyframes floatChip {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+.float-chip { animation: floatChip 5.5s ease-in-out infinite; }
+
+/* === Animated gradient text === */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animated-gradient-text {
+  background-size: 200% 200%;
+  animation: gradientShift 9s ease-in-out infinite;
+}
+
+/* === Reduced motion: settle all decorative animation === */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-anim,
+  .float-anim-slow,
+  .float-chip,
+  .blink-dot,
+  .animated-gradient-text {
+    animation: none !important;
+  }
+}
