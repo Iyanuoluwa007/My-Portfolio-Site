@@ -9,7 +9,7 @@ const inView = (delay = 0) => ({
 });
 
 const S = {
-  section: { position:"relative", padding:"96px 0", overflow:"hidden", backgroundColor:"#08080F" },
+  section: { position:"relative", padding:"96px 0", overflow:"hidden" },
   inner: { maxWidth:1152, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:1 },
   grid: { display:"grid", gridTemplateColumns:"1fr 1fr", gap:48, alignItems:"start" },
   h2: { fontFamily:"'Space Grotesk',system-ui,sans-serif", fontSize:"clamp(30px,4vw,46px)", fontWeight:700, color:"#F0F0F8", letterSpacing:"-0.02em", lineHeight:1.1, margin:"0 0 32px" },

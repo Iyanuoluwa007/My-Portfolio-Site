@@ -211,7 +211,7 @@ function PublicationCard({ pub, index }) {
 
 export default function Publications() {
   return (
-    <section id="publications" style={{ position: "relative", padding: "96px 0", overflow: "hidden", backgroundColor: "#08080F" }}>
+    <section id="publications" style={{ position: "relative", padding: "96px 0", overflow: "hidden" }}>
       <div className="orb" style={{ width: 400, height: 400, right: -100, top: "20%", background: "radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%)" }} />
       <div style={{ maxWidth: 1152, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
 

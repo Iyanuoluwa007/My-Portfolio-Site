@@ -17,7 +17,7 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" style={{ position:"relative", padding:"96px 0", overflow:"hidden", backgroundColor:"#08080F" }}>
+    <section id="skills" style={{ position:"relative", padding:"96px 0", overflow:"hidden" }}>
       <div className="orb" style={{ width:400, height:400, left:-80, top:"30%", background:"radial-gradient(circle, rgba(129,140,248,0.07), transparent 70%)" }} />
       <div style={{ maxWidth:1152, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:1 }}>
         <motion.div {...inView()} style={{ marginBottom:52 }}>

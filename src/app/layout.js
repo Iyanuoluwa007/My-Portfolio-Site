@@ -1,5 +1,7 @@
 import "./globals.css";
 import Nav from "@/components/Nav";
+import AuroraBackground from "@/components/AuroraBackground";
+import CursorGlow from "@/components/CursorGlow";
 
 export const metadata = {
   title: "Iyanuoluwa Oke — Robotics & AI Engineer",
@@ -16,6 +18,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning className="antialiased">
+        <AuroraBackground />
+        <CursorGlow />
         <Nav />
         <main>{children}</main>
       </body>

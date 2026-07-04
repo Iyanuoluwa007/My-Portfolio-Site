@@ -5,6 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === Theme tokens === */
+:root {
+  --bg: #08080F;
+  --surface: #0F0F1B;
+  --accent: #6366F1;
+  --accent-soft: #818CF8;
+  --accent-lighter: #A5B4FC;
+}
+
 /* === Base === */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -15,7 +24,7 @@ html {
 }
 
 body {
-  background-color: #08080F;
+  background-color: var(--bg);
   color: #F0F0F8;
   font-family: "DM Sans", system-ui, sans-serif;
   overflow-x: hidden;

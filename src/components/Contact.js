@@ -33,7 +33,7 @@ const contactLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ position:"relative", padding:"96px 0", overflow:"hidden", backgroundColor:"#08080F" }}>
+    <section id="contact" style={{ position:"relative", padding:"96px 0", overflow:"hidden" }}>
       <div className="orb" style={{ width:600, height:400, left:"50%", transform:"translateX(-50%)", top:0, background:"radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%)" }} />
       <div style={{ maxWidth:1152, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:1 }}>
 

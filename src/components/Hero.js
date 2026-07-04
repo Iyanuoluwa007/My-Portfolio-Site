@@ -27,7 +27,6 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "#08080F",
       }}
     >
       {/* Dot grid background */}

@@ -69,7 +69,7 @@ const projects = [
 
 export default function ProjectsClient() {
   return (
-    <section id="projects" style={{ position:"relative", padding:"96px 0", backgroundColor:"#08080F" }}>
+    <section id="projects" style={{ position:"relative", padding:"96px 0" }}>
       <div style={{ maxWidth:1152, margin:"0 auto", padding:"0 24px", position:"relative", zIndex:1 }}>
 
         {/* Header */}
