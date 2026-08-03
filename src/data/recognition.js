@@ -111,10 +111,11 @@ export const articles = [
       "A full tutorial on building a production-ready robotic perception system: ROS 2 integration, YOLOv11 detection, ByteTrack multi-object tracking, and ONNX optimisation for deployment on edge hardware.",
     tags: ["ROS 2", "YOLOv11", "ByteTrack", "ONNX"],
     url: "https://www.freecodecamp.org/news/how-to-build-a-real-time-object-detection-and-tracking-pipeline-with-ros-2-and-yolov11/",
-    secondaryLink: {
-      label: "Featured by freeCodeCamp",
-      href: "https://x.com/freeCodeCamp/status/2082617450735047065",
-    },
+    // Where freeCodeCamp promoted the article to their own audience.
+    features: [
+      { label: "freeCodeCamp on X", href: "https://x.com/freeCodeCamp/status/2082617450735047065" },
+      { label: "freeCodeCamp on LinkedIn", href: "https://www.linkedin.com/posts/real-time-object-detection-in-robotics-needs-share-7488383219701280768-L6YK/" },
+    ],
   },
   {
     id: "devto-signlytic",

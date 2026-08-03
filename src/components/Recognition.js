@@ -207,8 +207,7 @@ function HighlightCard({ item, index }) {
 }
 
 function ArticleCard({ item, index }) {
-  const links = [{ label: "Read article", href: item.url }];
-  if (item.secondaryLink) links.push(item.secondaryLink);
+  const links = [{ label: "Read article", href: item.url }, ...(item.features ?? [])];
 
   return (
     <motion.article
