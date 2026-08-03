@@ -8,6 +8,7 @@ const links = [
   { href:"#skills", id:"skills", label:"Skills" },
   { href:"#projects", id:"projects", label:"Projects" },
   { href:"#publications", id:"publications", label:"Publications" },
+  { href:"#recognition", id:"recognition", label:"Recognition" },
   { href:"#contact", id:"contact", label:"Contact" },
 ];
 
@@ -69,7 +70,7 @@ export default function Nav() {
 
         {/* Desktop right */}
         <div style={{ display:"flex", alignItems:"center", gap:12, position:"relative", zIndex:1 }} className="nav-desktop">
-          <div style={{ display:"flex", alignItems:"center", gap:6, padding:"6px 13px", borderRadius:100, border:"1px solid rgba(255,255,255,0.09)", background:"rgba(255,255,255,0.03)", fontSize:11.5, fontFamily:"'JetBrains Mono',monospace", color:"#94A3B8" }}>
+          <div className="nav-availability" style={{ display:"flex", alignItems:"center", gap:6, padding:"6px 13px", borderRadius:100, border:"1px solid rgba(255,255,255,0.09)", background:"rgba(255,255,255,0.03)", fontSize:11.5, fontFamily:"'JetBrains Mono',monospace", color:"#94A3B8" }}>
             <span className="blink-dot" style={{ width:5.5, height:5.5, borderRadius:"50%", background:"#34D399", flexShrink:0 }} />
             Available
           </div>
@@ -113,14 +114,18 @@ export default function Nav() {
       )}
 
       <style>{`
-        @media (min-width: 961px) {
+        @media (min-width: 1025px) {
           .nav-desktop { display: flex !important; }
           .nav-mobile { display: none !important; }
           .nav-mobile-menu { display: none !important; }
         }
-        @media (max-width: 960px) {
+        @media (max-width: 1024px) {
           .nav-desktop { display: none !important; }
           .nav-mobile { display: flex !important; }
+        }
+        /* Keep the centered links clear of the CV button on narrower desktops */
+        @media (max-width: 1200px) {
+          .nav-availability { display: none !important; }
         }
       `}</style>
     </header>
