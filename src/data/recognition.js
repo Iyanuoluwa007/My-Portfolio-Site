@@ -43,7 +43,7 @@ export const highlights = [
     ],
     tags: ["Peer Review", "Springer Nature", "Academic Service"],
     links: [
-      { label: "BMC Artificial Intelligence", href: "https://bmcartifintell.biomedcentral.com/" },
+      { label: "BMC Artificial Intelligence", href: "https://bmcartificialintel.biomedcentral.com/" },
     ],
     image: null,
     imageAlt: "Springer Nature reviewer certificate awarded to Iyanuoluwa Enoch Oke",
