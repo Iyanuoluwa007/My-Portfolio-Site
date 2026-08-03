@@ -14,7 +14,7 @@ export const highlights = [
     org: "MervinPraison/PraisonAI",
     period: "2026",
     description:
-      "Ranked 17th of all contributors to PraisonAI, a widely used multi-agent AI framework. Contributions span agent termination and telemetry correctness, cross-platform (Windows) compatibility, LiteLLM fallback support, and substantial hardening of the integration test suite.",
+      "Among the top 20 contributors to PraisonAI, an open-source multi-agent AI framework with over 7,000 GitHub stars. My contributions included improvements to agent termination and telemetry correctness, Windows compatibility, LiteLLM fallback support, and substantial hardening of the integration test suite.",
     stats: [
       { value: "#17", label: "Contributor rank" },
       { value: "11", label: "Pull requests merged" },
