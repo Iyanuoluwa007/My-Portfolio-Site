@@ -82,7 +82,8 @@ export const highlights = [
     links: [
       { label: "Certificate (PDF)", href: "/evidence/icmlde-2025-reviewer-certificate.pdf" },
       { label: "Confirmation letter (PDF)", href: "/evidence/icmlde-2025-reviewer-letter.pdf" },
-      { label: "Conference", href: "https://www.icmlde.org" },
+      { label: "ICMLDE 2025", href: "https://icmlde.org/ICMLDE2025.html" },
+      { label: "Conference site", href: "https://www.icmlde.org/" },
     ],
     images: [
       {
