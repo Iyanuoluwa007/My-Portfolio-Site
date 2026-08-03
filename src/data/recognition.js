@@ -108,7 +108,7 @@ export const articles = [
       "How to Build a Real-Time Object Detection and Tracking Pipeline with ROS 2 and YOLOv11",
     date: "July 2026",
     description:
-      "A full tutorial on building a production-ready robotic perception system: ROS 2 integration, YOLOv11 detection, ByteTrack multi-object tracking, and ONNX optimisation for deployment on edge hardware.",
+      "A full tutorial on building a production-ready robotic perception system: ROS 2 integration, YOLOv11 detection, ByteTrack multi-object tracking, and ONNX optimisation for deployment on edge hardware. Published by freeCodeCamp and promoted to their 2.2M+ followers on X and LinkedIn.",
     tags: ["ROS 2", "YOLOv11", "ByteTrack", "ONNX"],
     url: "https://www.freecodecamp.org/news/how-to-build-a-real-time-object-detection-and-tracking-pipeline-with-ros-2-and-yolov11/",
     // Where freeCodeCamp promoted the article to their own audience.
