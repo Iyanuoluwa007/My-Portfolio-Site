@@ -65,6 +65,38 @@ export const highlights = [
       },
     ],
   },
+  {
+    id: "icmlde-2025",
+    kind: "Peer Review",
+    title: "Reviewer — ICMLDE 2025",
+    org: "UPES Dehradun · Procedia Computer Science (Elsevier)",
+    period: "November 2025",
+    description:
+      "Served as external reviewer and assessor for the 4th International Conference on Machine Learning and Data Engineering (ICMLDE 2025), held 6-8 November 2025 at the School of Computer Science, UPES Dehradun, India, with proceedings published in Elsevier's Procedia Computer Science. Recognised by the Organising Chair, the Dean of the School of Computer Science, and the Vice Chancellor of UPES.",
+    stats: [
+      { value: "4th", label: "Conference edition" },
+      { value: "2025", label: "Review year" },
+      { value: "Elsevier", label: "Proceedings" },
+    ],
+    tags: ["Peer Review", "Conference Review", "Machine Learning", "Data Engineering"],
+    links: [
+      { label: "Certificate (PDF)", href: "/evidence/icmlde-2025-reviewer-certificate.pdf" },
+      { label: "Confirmation letter (PDF)", href: "/evidence/icmlde-2025-reviewer-letter.pdf" },
+      { label: "Conference", href: "https://www.icmlde.org" },
+    ],
+    images: [
+      {
+        src: "/evidence/icmlde-2025-reviewer-certificate.png",
+        alt: "ICMLDE 2025 certificate of recognition awarded to Oke Iyanuoluwa Enoch as a reviewer, issued by the School of Computer Science, UPES Dehradun",
+        caption: "ICMLDE 2025 certificate of recognition",
+      },
+      {
+        src: "/evidence/icmlde-2025-reviewer-letter.png",
+        alt: "Letter from the Organising Chair of ICMLDE 2025 confirming Oke Iyanuoluwa Enoch served as external reviewer, dated 20 December 2025",
+        caption: "Organising Chair confirmation letter, 20 December 2025",
+      },
+    ],
+  },
 ];
 
 export const articles = [
