@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { highlights, articles } from "@/data/recognition";
 
@@ -64,6 +65,43 @@ function LinkRow({ links }) {
   );
 }
 
+// Renders an evidence screenshot, or nothing at all if the file is missing.
+function EvidenceImage({ src, alt, caption }) {
+  const [ok, setOk] = useState(true);
+  if (!ok) return null;
+
+  return (
+    <figure style={{ margin: 0 }}>
+      <a
+        href={src}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ display: "block", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", background: "#08080F" }}
+        aria-label={`View full size: ${alt}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          onError={() => setOk(false)}
+          // Portrait scans (the A4 certificate) are bounded so they cannot
+          // dominate the card; landscape screenshots are unaffected.
+          style={{ width: "100%", maxHeight: 620, objectFit: "contain", display: "block", transition: "transform 0.35s ease" }}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        />
+      </a>
+      {caption && (
+        <figcaption style={{ fontSize: 11, color: "#64748B", fontFamily: "'JetBrains Mono',monospace", marginTop: 7 }}>
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 function HighlightCard({ item, index }) {
   return (
     <motion.article
@@ -86,14 +124,12 @@ function HighlightCard({ item, index }) {
         </p>
       </div>
 
-      {item.image && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={item.image}
-          alt={item.imageAlt}
-          loading="lazy"
-          style={{ width: "100%", borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", display: "block" }}
-        />
+      {item.images?.length > 0 && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          {item.images.map((img) => (
+            <EvidenceImage key={img.src} {...img} />
+          ))}
+        </div>
       )}
 
       <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.7, margin: 0, fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>

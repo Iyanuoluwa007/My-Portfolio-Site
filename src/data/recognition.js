@@ -1,9 +1,10 @@
 // Recognition evidence: technical writing, open source contribution, and
 // peer review. To add an entry, append an object to the relevant array.
 //
-// Highlight cards accept an optional `image` field (a path under /public,
-// e.g. "/evidence/praisonai-contributors.png"). When present the card
-// renders the screenshot; when absent it falls back to the stat block.
+// Highlight cards accept an optional `images` array of { src, alt, caption },
+// where `src` is a path under /public. Each image is rendered only if the file
+// actually exists: a missing file is caught and hidden at runtime, so the card
+// degrades cleanly to its stat block rather than showing a broken image.
 
 export const highlights = [
   {
@@ -25,8 +26,18 @@ export const highlights = [
       { label: "Merged pull requests", href: "https://github.com/MervinPraison/PraisonAI/pulls?q=is%3Apr+author%3AIyanuoluwa007+is%3Aclosed" },
       { label: "Repository", href: "https://github.com/MervinPraison/PraisonAI" },
     ],
-    image: null,
-    imageAlt: "PraisonAI contributor graph showing Iyanuoluwa007 ranked 17th",
+    images: [
+      {
+        src: "/evidence/praisonai-contributors.png",
+        alt: "GitHub contributor graph for MervinPraison/PraisonAI showing Iyanuoluwa007 ranked 17th",
+        caption: "Contributor graph — ranked #17",
+      },
+      {
+        src: "/evidence/praisonai-pull-requests.png",
+        alt: "GitHub pull request list showing 11 closed pull requests authored by Iyanuoluwa007 in PraisonAI",
+        caption: "11 pull requests closed and merged",
+      },
+    ],
   },
   {
     id: "springer-review",
@@ -43,10 +54,16 @@ export const highlights = [
     ],
     tags: ["Peer Review", "Springer Nature", "Academic Service"],
     links: [
+      { label: "Certificate (PDF)", href: "/evidence/springer-reviewer-certificate.pdf" },
       { label: "BMC Artificial Intelligence", href: "https://bmcartificialintel.biomedcentral.com/" },
     ],
-    image: null,
-    imageAlt: "Springer Nature reviewer certificate awarded to Iyanuoluwa Enoch Oke",
+    images: [
+      {
+        src: "/evidence/springer-reviewer-certificate.jpg",
+        alt: "Springer Nature reviewer certificate awarded to Iyanuoluwa Enoch Oke for contribution to BMC Artificial Intelligence, dated 19 June 2026",
+        caption: "Springer Nature reviewer certificate, 19 June 2026",
+      },
+    ],
   },
 ];
 
