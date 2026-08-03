@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { highlights, articles } from "@/data/recognition";
 
 const inView = (delay = 0) => ({
@@ -47,6 +47,26 @@ const ExternalIcon = () => (
     <path d="M4 12L12 4M12 4H6M12 4v6" />
   </svg>
 );
+
+// Matches the "Read Abstract" disclosure used in the Publications section.
+function DisclosureButton({ expanded, onClick, controls, label }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-expanded={expanded}
+      aria-controls={controls}
+      style={{ display: "inline-flex", alignItems: "center", gap: 5, border: "none", background: "transparent", padding: 0, color: "#818CF8", fontSize: 12.5, fontWeight: 500, fontFamily: "'DM Sans',sans-serif", cursor: "pointer", transition: "color 0.2s" }}
+      onMouseEnter={(e) => (e.currentTarget.style.color = "#A5B4FC")}
+      onMouseLeave={(e) => (e.currentTarget.style.color = "#818CF8")}
+    >
+      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+        style={{ transition: "transform 0.25s", transform: expanded ? "rotate(90deg)" : "rotate(0deg)" }}>
+        <path d="M6 3l5 5-5 5" />
+      </svg>
+      {label}
+    </button>
+  );
+}
 
 function LinkRow({ links }) {
   return (
@@ -103,6 +123,9 @@ function EvidenceImage({ src, alt, caption }) {
 }
 
 function HighlightCard({ item, index }) {
+  const [expanded, setExpanded] = useState(false);
+  const evidenceId = `evidence-${item.id}`;
+
   return (
     <motion.article
       {...inView(index * 0.08)}
@@ -123,14 +146,6 @@ function HighlightCard({ item, index }) {
           {item.org}
         </p>
       </div>
-
-      {item.images?.length > 0 && (
-        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          {item.images.map((img) => (
-            <EvidenceImage key={img.src} {...img} />
-          ))}
-        </div>
-      )}
 
       <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.7, margin: 0, fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>
         {item.description}
@@ -155,6 +170,36 @@ function HighlightCard({ item, index }) {
           <span key={t} className="skill-chip" style={{ padding: "3px 10px", fontSize: 11 }}>{t}</span>
         ))}
       </div>
+
+      {/* Evidence is collapsed by default so cards stay compact and uniform. */}
+      {item.images?.length > 0 && (
+        <div>
+          <DisclosureButton
+            expanded={expanded}
+            onClick={() => setExpanded(!expanded)}
+            controls={evidenceId}
+            label={expanded ? "Hide evidence" : `View evidence (${item.images.length})`}
+          />
+          <AnimatePresence initial={false}>
+            {expanded && (
+              <motion.div
+                id={evidenceId}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+                style={{ overflow: "hidden" }}
+              >
+                <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingTop: 14 }}>
+                  {item.images.map((img) => (
+                    <EvidenceImage key={img.src} {...img} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
 
       <LinkRow links={item.links} />
     </motion.article>
