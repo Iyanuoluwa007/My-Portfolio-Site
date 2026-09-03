@@ -126,6 +126,16 @@ export const articles = [
     ],
   },
   {
+    id: "coderlegion-ai-recommend",
+    outlet: "CoderLegion",
+    title: "AI Should Recommend, Not Rule: How I Design Systems That Fail Safely",
+    date: "30 August 2026",
+    description:
+      "The design principle behind every AI system I ship: AI proposes, deterministic rules validate, humans intervene where necessary, and everything important is logged. Covers why a model can be highly accurate and still unsafe as an authority, drawn from applying the pattern across robotics, computer vision, language systems, and quantitative finance.",
+    tags: ["AI Governance", "System Design", "Human-in-the-Loop", "Reliability"],
+    url: "https://coderlegion.com/25806/ai-should-recommend-not-rule-how-i-design-systems-that-fail-safely",
+  },
+  {
     id: "devto-signlytic",
     outlet: "DEV Community",
     title:
@@ -135,6 +145,10 @@ export const articles = [
       "The story behind Signlytic, a Chrome extension that turns live captions into British Sign Language animations in real time, and the case for building accessibility tooling without waiting for permission.",
     tags: ["Accessibility", "Computer Vision", "Chrome Extension"],
     url: "https://dev.to/iyanuoluwa007/i-built-a-bsl-translation-extension-that-nobody-asked-for-here-is-why-i-did-it-anyway-4fk9",
+    // Syndicated to CoderLegion on 30 August 2026.
+    features: [
+      { label: "Also on CoderLegion", href: "https://coderlegion.com/25805/i-built-a-bsl-translation-extension-that-nobody-asked-for-here-is-why-i-did-it-anyway" },
+    ],
   },
   {
     id: "devto-carla",
@@ -145,6 +159,10 @@ export const articles = [
       "Practical lessons from integrating YOLOv11, ByteTrack, StrongSORT, CARLA, and ROS 2 into a real-time perception system, and why the hard problems are systems-level rather than model-level.",
     tags: ["CARLA", "ROS 2", "Perception", "SLAM"],
     url: "https://dev.to/iyanuoluwa007/i-built-a-real-time-perception-stack-on-carla-here-is-what-actually-happened-5abl",
+    // Syndicated to CoderLegion on 30 August 2026.
+    features: [
+      { label: "Also on CoderLegion", href: "https://coderlegion.com/25804/i-built-a-real-time-perception-stack-on-carla-here-is-what-actually-happened" },
+    ],
   },
   {
     id: "hackernoon-final-decision",
