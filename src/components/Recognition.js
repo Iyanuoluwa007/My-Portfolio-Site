@@ -55,7 +55,7 @@ function DisclosureButton({ expanded, onClick, controls, label }) {
       onClick={onClick}
       aria-expanded={expanded}
       aria-controls={controls}
-      style={{ display: "inline-flex", alignItems: "center", gap: 5, border: "none", background: "transparent", padding: 0, color: "#818CF8", fontSize: 12.5, fontWeight: 500, fontFamily: "'DM Sans',sans-serif", cursor: "pointer", transition: "color 0.2s" }}
+      style={{ display: "inline-flex", alignItems: "center", gap: 5, border: "none", background: "transparent", padding: "6px 0", color: "#818CF8", fontSize: 12.5, fontWeight: 500, fontFamily: "'DM Sans',sans-serif", cursor: "pointer", transition: "color 0.2s" }}
       onMouseEnter={(e) => (e.currentTarget.style.color = "#A5B4FC")}
       onMouseLeave={(e) => (e.currentTarget.style.color = "#818CF8")}
     >
