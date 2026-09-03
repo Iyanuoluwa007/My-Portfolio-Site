@@ -58,9 +58,9 @@ export default function Contact() {
             </motion.p>
             <motion.a {...inView(0.3)}
               href="mailto:oke.iyanuoluwa12@gmail.com"
-              style={{ display:"inline-flex", alignItems:"center", gap:10, padding:"13px 26px", background:"#6366F1", color:"#fff", fontWeight:500, fontSize:14, borderRadius:14, textDecoration:"none", boxShadow:"0 0 20px rgba(99,102,241,0.25)", transition:"all 0.2s", fontFamily:"'DM Sans',sans-serif" }}
+              style={{ display:"inline-flex", alignItems:"center", gap:10, padding:"13px 26px", background:"#6265EF", color:"#fff", fontWeight:500, fontSize:14, borderRadius:14, textDecoration:"none", boxShadow:"0 0 20px rgba(99,102,241,0.25)", transition:"all 0.2s", fontFamily:"'DM Sans',sans-serif" }}
               onMouseEnter={e => { e.currentTarget.style.background="#818CF8"; e.currentTarget.style.transform="translateY(-1px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.background="#6366F1"; e.currentTarget.style.transform="translateY(0)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background="#6265EF"; e.currentTarget.style.transform="translateY(0)"; }}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
               Send me a message

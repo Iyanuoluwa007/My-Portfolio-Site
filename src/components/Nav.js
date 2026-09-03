@@ -76,9 +76,9 @@ export default function Nav() {
           </div>
           <a href="https://drive.google.com/file/d/1QwpycQIutZnM9STD5lv9PMcv4v3nZxjS/view?usp=sharing" target="_blank" rel="noopener noreferrer"
             className="btn-press"
-            style={{ padding:"8px 18px", fontSize:13, fontWeight:500, background:"#6366F1", color:"#fff", borderRadius:10, textDecoration:"none", boxShadow:"0 0 16px rgba(99,102,241,0.2)", transition:"background 0.2s, box-shadow 0.25s", fontFamily:"'DM Sans',sans-serif" }}
+            style={{ padding:"8px 18px", fontSize:13, fontWeight:500, background:"#6265EF", color:"#fff", borderRadius:10, textDecoration:"none", boxShadow:"0 0 16px rgba(99,102,241,0.2)", transition:"background 0.2s, box-shadow 0.25s", fontFamily:"'DM Sans',sans-serif" }}
             onMouseEnter={e => { e.currentTarget.style.background="#818CF8"; e.currentTarget.style.boxShadow="0 0 24px rgba(99,102,241,0.4)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background="#6366F1"; e.currentTarget.style.boxShadow="0 0 16px rgba(99,102,241,0.2)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background="#6265EF"; e.currentTarget.style.boxShadow="0 0 16px rgba(99,102,241,0.2)"; }}
           >
             Download CV
           </a>
@@ -106,7 +106,7 @@ export default function Nav() {
             </Link>
           ))}
           <a href="https://drive.google.com/file/d/1QwpycQIutZnM9STD5lv9PMcv4v3nZxjS/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-            style={{ display:"block", marginTop:14, padding:"12px 0", textAlign:"center", background:"#6366F1", color:"#fff", fontSize:13.5, fontWeight:500, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif" }}
+            style={{ display:"block", marginTop:14, padding:"12px 0", textAlign:"center", background:"#6265EF", color:"#fff", fontSize:13.5, fontWeight:500, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif" }}
           >
             Download CV
           </a>

@@ -148,7 +148,7 @@ export default function Hero() {
             }}>
               <Link href="#projects" className="btn-press" style={{
                 padding: "12px 24px",
-                background: "#6366F1",
+                background: "#6265EF",
                 color: "#fff",
                 fontWeight: 500,
                 fontSize: 14,
@@ -161,7 +161,7 @@ export default function Hero() {
                 gap: 8,
               }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#818CF8"; e.currentTarget.style.transform = "translateY(-1px) scale(1.02)"; e.currentTarget.style.boxShadow = "0 0 32px rgba(99,102,241,0.45)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "#6366F1"; e.currentTarget.style.transform = "translateY(0) scale(1)"; e.currentTarget.style.boxShadow = "0 0 20px rgba(99,102,241,0.25)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#6265EF"; e.currentTarget.style.transform = "translateY(0) scale(1)"; e.currentTarget.style.boxShadow = "0 0 20px rgba(99,102,241,0.25)"; }}
               >
                 View My Work
                 <svg className="cta-arrow" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5L13.5 8 9 12.5" /></svg>
