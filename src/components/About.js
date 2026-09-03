@@ -69,7 +69,7 @@ export default function About() {
             <motion.div {...inView(0.4)} style={{ display:"flex", flexDirection:"column", gap:10 }}>
               {highlights.map((h) => (
                 <div key={h} style={{ display:"flex", alignItems:"center", gap:10, fontSize:14, color:"#94A3B8", fontFamily:"'DM Sans',sans-serif" }}>
-                  <span style={{ color:"#6366F1", fontSize:10, flexShrink:0 }}>◈</span>
+                  <span style={{ color:"#676AFB", fontSize:10, flexShrink:0 }}>◈</span>
                   {h}
                 </div>
               ))}
@@ -78,7 +78,7 @@ export default function About() {
 
           <motion.div {...inView(0.15)}>
             <div style={S.card}>
-              <p style={{ fontSize:11, fontFamily:"'JetBrains Mono',monospace", color:"#64748B", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:16 }}>Areas of Focus</p>
+              <p style={{ fontSize:11, fontFamily:"'JetBrains Mono',monospace", color:"#6C7D96", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:16 }}>Areas of Focus</p>
               <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
                 {focus.map(f => <span key={f} className="skill-chip">{f}</span>)}
               </div>

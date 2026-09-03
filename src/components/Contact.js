@@ -69,7 +69,7 @@ export default function Contact() {
 
           {/* Right: card */}
           <motion.div {...inView(0.2)} style={{ padding:28, borderRadius:20, border:"1px solid rgba(255,255,255,0.09)", background:"#0F0F1B", boxShadow:"0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)" }}>
-            <p style={{ fontSize:11, fontFamily:"'JetBrains Mono',monospace", color:"#64748B", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:20 }}>Quick links</p>
+            <p style={{ fontSize:11, fontFamily:"'JetBrains Mono',monospace", color:"#6C7D96", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:20 }}>Quick links</p>
 
             <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
               {contactLinks.map(({ label, value, href, icon }) => (
@@ -78,12 +78,12 @@ export default function Contact() {
                   onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.14)"; e.currentTarget.style.background="rgba(255,255,255,0.05)"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.06)"; e.currentTarget.style.background="rgba(255,255,255,0.02)"; }}
                 >
-                  <span style={{ color:"#64748B", flexShrink:0, display:"flex" }}>{icon}</span>
+                  <span style={{ color:"#6C7D96", flexShrink:0, display:"flex" }}>{icon}</span>
                   <div style={{ flex:1, minWidth:0 }}>
-                    <p style={{ fontSize:10.5, fontFamily:"'JetBrains Mono',monospace", color:"#64748B", textTransform:"uppercase", letterSpacing:"0.1em", margin:0 }}>{label}</p>
+                    <p style={{ fontSize:10.5, fontFamily:"'JetBrains Mono',monospace", color:"#6C7D96", textTransform:"uppercase", letterSpacing:"0.1em", margin:0 }}>{label}</p>
                     <p style={{ fontSize:13, color:"#94A3B8", margin:"3px 0 0", overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap", fontFamily:"'DM Sans',sans-serif" }}>{value}</p>
                   </div>
-                  <svg style={{ color:"#64748B", flexShrink:0, opacity:0.6 }} width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+                  <svg style={{ color:"#6C7D96", flexShrink:0, opacity:0.6 }} width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
                 </a>
               ))}
             </div>
@@ -96,10 +96,10 @@ export default function Contact() {
                 onMouseLeave={e => e.currentTarget.style.background="rgba(99,102,241,0.07)"}
               >
                 <div>
-                  <p style={{ fontSize:10.5, fontFamily:"'JetBrains Mono',monospace", color:"rgba(99,102,241,0.8)", textTransform:"uppercase", letterSpacing:"0.1em", margin:0 }}>Resume</p>
+                  <p style={{ fontSize:10.5, fontFamily:"'JetBrains Mono',monospace", color:"var(--accent-text)", textTransform:"uppercase", letterSpacing:"0.1em", margin:0 }}>Resume</p>
                   <p style={{ fontSize:13.5, color:"#F0F0F8", margin:"3px 0 0", fontFamily:"'DM Sans',sans-serif" }}>Download CV</p>
                 </div>
-                <svg style={{ color:"#6366F1" }} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg style={{ color:"#676AFB" }} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               </a>
             </div>
           </motion.div>
@@ -110,10 +110,10 @@ export default function Contact() {
           <p style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:600, fontSize:14, color:"#F0F0F8", margin:0 }}>
             Iyanuoluwa Oke
           </p>
-          <p style={{ fontSize:12, fontFamily:"'JetBrains Mono',monospace", color:"#64748B", margin:0 }}>
+          <p style={{ fontSize:12, fontFamily:"'JetBrains Mono',monospace", color:"#6C7D96", margin:0 }}>
             © {new Date().getFullYear()} — Independent Robotics &amp; AI Systems Engineer
           </p>
-          <div style={{ display:"flex", alignItems:"center", gap:6, fontSize:11.5, fontFamily:"'JetBrains Mono',monospace", color:"#64748B" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:6, fontSize:11.5, fontFamily:"'JetBrains Mono',monospace", color:"#6C7D96" }}>
             <span className="blink-dot" style={{ width:6, height:6, borderRadius:"50%", background:"#34D399", flexShrink:0 }} />
             Manchester, UK
           </div>

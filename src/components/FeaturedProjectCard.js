@@ -49,7 +49,7 @@ export default function FeaturedProjectCard() {
       onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(99,102,241,0.35)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.15)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)"; e.currentTarget.style.boxShadow = "none"; }}
     >
-      <p style={{ fontSize: 10.5, fontFamily: "'JetBrains Mono',monospace", letterSpacing: "0.15em", textTransform: "uppercase", color: "#64748B", margin: "0 0 16px" }}>
+      <p style={{ fontSize: 10.5, fontFamily: "'JetBrains Mono',monospace", letterSpacing: "0.15em", textTransform: "uppercase", color: "#6C7D96", margin: "0 0 16px" }}>
         Featured Project
       </p>
 
@@ -95,7 +95,7 @@ export default function FeaturedProjectCard() {
             <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 18, color: "#F0F0F8", margin: "0 0 3px" }}>
               {project.title}
             </h3>
-            <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#6366F1", margin: "0 0 10px" }}>
+            <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#676AFB", margin: "0 0 10px" }}>
               {project.subtitle}
             </p>
             <p style={{ fontSize: 13, color: "#94A3B8", lineHeight: 1.65, margin: "0 0 12px", fontFamily: "'DM Sans',sans-serif", fontWeight: 300, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>

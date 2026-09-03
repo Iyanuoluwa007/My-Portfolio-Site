@@ -210,7 +210,7 @@ export default function Hero() {
                   </div>
                   <div style={{
                     fontSize: 12,
-                    color: "#64748B",
+                    color: "#6C7D96",
                     fontFamily: "'DM Sans', system-ui, sans-serif",
                     marginTop: 5,
                     whiteSpace: "nowrap",
@@ -226,7 +226,7 @@ export default function Hero() {
               <p style={{
                 fontSize: 10.5, fontFamily: "'JetBrains Mono', monospace",
                 letterSpacing: "0.15em", textTransform: "uppercase",
-                color: "#64748B", margin: "0 0 12px",
+                color: "#6C7D96", margin: "0 0 12px",
               }}>
                 Tech Stack
               </p>
@@ -299,7 +299,7 @@ export default function Hero() {
                 boxShadow: "0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4)",
                 minWidth: 152,
               }}>
-                <p style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: "#64748B", margin: "0 0 7px" }}>Specialisation</p>
+                <p style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: "#6C7D96", margin: "0 0 7px" }}>Specialisation</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                   {["Robotics Engineer", "AI Systems Engineer", "Computer Vision"].map((r) => (
                     <span key={r} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10.5, fontFamily: "'DM Sans',sans-serif", fontWeight: 500, color: "#A5B4FC" }}>
@@ -317,7 +317,7 @@ export default function Hero() {
                 boxShadow: "0 1px 1px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4)",
                 minWidth: 128,
               }}>
-                <p style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: "#64748B", margin: "0 0 4px" }}>Status</p>
+                <p style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: "#6C7D96", margin: "0 0 4px" }}>Status</p>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <span className="blink-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: "#34D399", flexShrink: 0 }} />
                   <p style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 12, color: "#F0F0F8", margin: 0 }}>Open to work</p>

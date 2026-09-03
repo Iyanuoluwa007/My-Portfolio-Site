@@ -21,7 +21,7 @@ export default function ProjectsClient() {
             <h2 style={{ fontFamily:"'Space Grotesk',system-ui,sans-serif", fontSize:"clamp(28px,4vw,44px)", fontWeight:700, color:"#F0F0F8", letterSpacing:"-0.02em", margin:0 }}>
               Open Source Work
             </h2>
-            <p style={{ fontSize:15, color:"#64748B", marginTop:8, fontFamily:"'DM Sans',sans-serif", fontWeight:300 }}>
+            <p style={{ fontSize:15, color:"#6C7D96", marginTop:8, fontFamily:"'DM Sans',sans-serif", fontWeight:300 }}>
               A focused selection of production systems and engineering experiments.
             </p>
           </div>
@@ -59,13 +59,13 @@ export default function ProjectsClient() {
                 <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:600, fontSize:15, color:"#F0F0F8", margin:"0 0 4px", lineHeight:1.3 }}>
                   {project.title}
                 </h3>
-                <p style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:11, color:"#6366F1", margin:0 }}>
+                <p style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:11, color:"#676AFB", margin:0 }}>
                   {project.subtitle}
                 </p>
               </div>
 
               {/* Description */}
-              <p style={{ fontSize:13, color:"#64748B", lineHeight:1.65, margin:0, fontFamily:"'DM Sans',sans-serif", flex:1 }}>
+              <p style={{ fontSize:13, color:"#6C7D96", lineHeight:1.65, margin:0, fontFamily:"'DM Sans',sans-serif", flex:1 }}>
                 {project.description}
               </p>
 
@@ -80,9 +80,9 @@ export default function ProjectsClient() {
               <div style={{ display:"flex", gap:12, paddingTop:10, borderTop:"1px solid rgba(255,255,255,0.05)" }}>
                 {project.links.map(({ label, href }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                    style={{ display:"flex", alignItems:"center", gap:5, fontSize:12.5, color:"#6366F1", textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontWeight:500, transition:"color 0.2s" }}
+                    style={{ display:"flex", alignItems:"center", gap:5, fontSize:12.5, color:"#676AFB", textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontWeight:500, transition:"color 0.2s" }}
                     onMouseEnter={e => e.currentTarget.style.color="#A5B4FC"}
-                    onMouseLeave={e => e.currentTarget.style.color="#6366F1"}
+                    onMouseLeave={e => e.currentTarget.style.color="#676AFB"}
                   >
                     <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
                     {label}

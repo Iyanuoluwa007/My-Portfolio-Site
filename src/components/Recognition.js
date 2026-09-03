@@ -37,7 +37,7 @@ const subHeading = {
   fontSize: 11,
   letterSpacing: "0.15em",
   textTransform: "uppercase",
-  color: "#64748B",
+  color: "#6C7D96",
   margin: "0 0 18px",
   fontWeight: 500,
 };
@@ -73,9 +73,9 @@ function LinkRow({ links }) {
     <div style={{ display: "flex", flexWrap: "wrap", gap: 14, paddingTop: 12, borderTop: "1px solid rgba(255,255,255,0.05)", marginTop: "auto" }}>
       {links.map(({ label, href }) => (
         <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-          style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12.5, color: "#6366F1", textDecoration: "none", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, transition: "color 0.2s" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12.5, color: "#676AFB", textDecoration: "none", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, transition: "color 0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.color = "#A5B4FC")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#6366F1")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#676AFB")}
         >
           <ExternalIcon />
           {label}
@@ -114,7 +114,7 @@ function EvidenceImage({ src, alt, caption }) {
         />
       </a>
       {caption && (
-        <figcaption style={{ fontSize: 11, color: "#64748B", fontFamily: "'JetBrains Mono',monospace", marginTop: 7 }}>
+        <figcaption style={{ fontSize: 11, color: "#6C7D96", fontFamily: "'JetBrains Mono',monospace", marginTop: 7 }}>
           {caption}
         </figcaption>
       )}
@@ -135,14 +135,14 @@ function HighlightCard({ item, index }) {
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         <span className="tag" style={{ fontSize: 10.5 }}>{item.kind}</span>
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#64748B" }}>{item.period}</span>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#6C7D96" }}>{item.period}</span>
       </div>
 
       <div>
         <h4 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 16, color: "#F0F0F8", margin: "0 0 4px", lineHeight: 1.4 }}>
           {item.title}
         </h4>
-        <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11.5, color: "#6366F1", margin: 0 }}>
+        <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11.5, color: "#676AFB", margin: 0 }}>
           {item.org}
         </p>
       </div>
@@ -158,7 +158,7 @@ function HighlightCard({ item, index }) {
             <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 22, fontWeight: 700, color: "#F0F0F8", letterSpacing: "-0.02em", lineHeight: 1 }}>
               {value}
             </div>
-            <div style={{ fontSize: 11, color: "#64748B", fontFamily: "'DM Sans',sans-serif", marginTop: 5 }}>
+            <div style={{ fontSize: 11, color: "#6C7D96", fontFamily: "'DM Sans',sans-serif", marginTop: 5 }}>
               {label}
             </div>
           </div>
@@ -218,7 +218,7 @@ function ArticleCard({ item, index }) {
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         <span className="tag" style={{ fontSize: 10.5 }}>{item.outlet}</span>
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#64748B" }}>{item.date}</span>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#6C7D96" }}>{item.date}</span>
         {item.featured && (
           <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10.5, color: "#34D399" }}>
             ★ Editorially featured
@@ -257,7 +257,7 @@ export default function Recognition() {
           <h2 style={{ fontFamily: "'Space Grotesk',system-ui,sans-serif", fontSize: "clamp(28px,4vw,44px)", fontWeight: 700, color: "#F0F0F8", letterSpacing: "-0.02em", margin: 0 }}>
             Writing &amp; Recognition
           </h2>
-          <p style={{ fontSize: 15, color: "#64748B", marginTop: 8, maxWidth: 560, lineHeight: 1.7, fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>
+          <p style={{ fontSize: 15, color: "#6C7D96", marginTop: 8, maxWidth: 560, lineHeight: 1.7, fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>
             Open source contribution, academic peer review, and technical writing published by leading
             engineering platforms.
           </p>

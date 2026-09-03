@@ -78,7 +78,7 @@ export default function FeaturedProjectsClient({ repos }) {
             }}>
               Recently Shipped
             </h2>
-            <p style={{ fontSize: 15, color: "#64748B", marginTop: 8, fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}>
+            <p style={{ fontSize: 15, color: "#6C7D96", marginTop: 8, fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}>
               Top 10 repositories, sorted by latest activity — live from GitHub.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function FeaturedProjectsClient({ repos }) {
               {["#", "Repository", "Language", "Updated", "★", ""].map((h) => (
                 <span key={h} style={{
                   fontSize: 10.5, fontFamily: "'JetBrains Mono', monospace",
-                  color: "#64748B", letterSpacing: "0.1em", textTransform: "uppercase",
+                  color: "#6C7D96", letterSpacing: "0.1em", textTransform: "uppercase",
                 }}>
                   {h}
                 </span>
@@ -223,7 +223,7 @@ export default function FeaturedProjectsClient({ repos }) {
                           }} />
                           <span style={{
                             fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace",
-                            color: "#64748B", whiteSpace: "nowrap",
+                            color: "#6C7D96", whiteSpace: "nowrap",
                             overflow: "hidden", textOverflow: "ellipsis",
                           }}>
                             {repo.language}
@@ -236,7 +236,7 @@ export default function FeaturedProjectsClient({ repos }) {
 
                     {/* Updated */}
                     <div>
-                      <p style={{ fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace", color: "#64748B", margin: 0 }}>
+                      <p style={{ fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace", color: "#6C7D96", margin: 0 }}>
                         {timeAgo(repo.pushedAt)}
                       </p>
                       <p style={{ fontSize: 10.5, fontFamily: "'JetBrains Mono', monospace", color: "#334155", margin: "2px 0 0" }}>
@@ -246,10 +246,10 @@ export default function FeaturedProjectsClient({ repos }) {
 
                     {/* Stars */}
                     <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                      <svg width="10" height="10" viewBox="0 0 16 16" fill="#64748B">
+                      <svg width="10" height="10" viewBox="0 0 16 16" fill="#6C7D96">
                         <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/>
                       </svg>
-                      <span style={{ fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace", color: "#64748B" }}>
+                      <span style={{ fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace", color: "#6C7D96" }}>
                         {repo.stars}
                       </span>
                     </div>
@@ -291,7 +291,7 @@ export default function FeaturedProjectsClient({ repos }) {
                 style={{
                   display: "flex", alignItems: "center", gap: 6,
                   fontSize: 11.5, fontFamily: "'JetBrains Mono', monospace",
-                  color: "#6366F1", textDecoration: "none",
+                  color: "#676AFB", textDecoration: "none",
                   transition: "opacity 0.15s",
                 }}
                 onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}

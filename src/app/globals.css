@@ -12,6 +12,10 @@
   --accent: #6366F1;
   --accent-soft: #818CF8;
   --accent-lighter: #A5B4FC;
+  /* Text-safe variants: same hues nudged to clear WCAG AA 4.5:1 on
+     the page and card backgrounds. Use these for text, not for fills. */
+  --accent-text: #676AFB;
+  --text-muted: #6C7D96;
 }
 
 /* === Base === */
@@ -94,7 +98,7 @@ body::before {
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #6366F1;
+  color: var(--accent-text);
   font-weight: 500;
 }
 

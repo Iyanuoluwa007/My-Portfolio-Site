@@ -111,9 +111,9 @@ function PublicationCard({ pub, index }) {
       {/* Type and year badges */}
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         <span className="tag" style={{ fontSize: 10.5 }}>{pub.type}</span>
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#64748B" }}>{pub.year}</span>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#6C7D96" }}>{pub.year}</span>
         {pub.version && (
-          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#64748B" }}>v{pub.version}</span>
+          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#6C7D96" }}>v{pub.version}</span>
         )}
       </div>
 
@@ -123,7 +123,7 @@ function PublicationCard({ pub, index }) {
       </h3>
 
       {/* Authors and publisher */}
-      <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11.5, color: "#6366F1", margin: 0 }}>
+      <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11.5, color: "#676AFB", margin: 0 }}>
         {pub.authors} · {pub.publisher}
       </p>
 
@@ -221,7 +221,7 @@ export default function Publications() {
           <h2 style={{ fontFamily: "'Space Grotesk',system-ui,sans-serif", fontSize: "clamp(28px,4vw,44px)", fontWeight: 700, color: "#F0F0F8", letterSpacing: "-0.02em", margin: 0 }}>
             Research & Publications
           </h2>
-          <p style={{ fontSize: 15, color: "#64748B", marginTop: 8, maxWidth: 520, lineHeight: 1.7, fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>
+          <p style={{ fontSize: 15, color: "#6C7D96", marginTop: 8, maxWidth: 520, lineHeight: 1.7, fontFamily: "'DM Sans',sans-serif", fontWeight: 300 }}>
             Peer-archived research in AI governance, robotic perception, and embedded robotic systems.
           </p>
         </motion.div>
