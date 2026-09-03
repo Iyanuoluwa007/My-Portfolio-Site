@@ -114,7 +114,7 @@ export const articles = [
     featured: true,
     title:
       "How to Build a Real-Time Object Detection and Tracking Pipeline with ROS 2 and YOLOv11",
-    date: "July 2026",
+    date: "25 July 2026",
     description:
       "A full tutorial on building a production-ready robotic perception system: ROS 2 integration, YOLOv11 detection, ByteTrack multi-object tracking, and ONNX optimisation for deployment on edge hardware. Published by freeCodeCamp and promoted to their 2.2M+ followers on X and LinkedIn.",
     tags: ["ROS 2", "YOLOv11", "ByteTrack", "ONNX"],
@@ -130,7 +130,7 @@ export const articles = [
     outlet: "DEV Community",
     title:
       "I Built a BSL Translation Extension That Nobody Asked For. Here Is Why I Did It Anyway.",
-    date: "August 2026",
+    date: "1 August 2026",
     description:
       "The story behind Signlytic, a Chrome extension that turns live captions into British Sign Language animations in real time, and the case for building accessibility tooling without waiting for permission.",
     tags: ["Accessibility", "Computer Vision", "Chrome Extension"],
@@ -140,7 +140,7 @@ export const articles = [
     id: "devto-carla",
     outlet: "DEV Community",
     title: "I Built a Real-Time Perception Stack on CARLA. Here Is What Actually Happened.",
-    date: "July 2026",
+    date: "21 July 2026",
     description:
       "Practical lessons from integrating YOLOv11, ByteTrack, StrongSORT, CARLA, and ROS 2 into a real-time perception system, and why the hard problems are systems-level rather than model-level.",
     tags: ["CARLA", "ROS 2", "Perception", "SLAM"],
@@ -150,20 +150,20 @@ export const articles = [
     id: "hackernoon-final-decision",
     outlet: "HackerNoon",
     title: "Why I Don't Let AI Make the Final Decision",
-    date: "2026",
+    date: "29 July 2026",
     description:
-      "On human-in-the-loop design for high-stakes autonomous systems: why separating advisory models from execution authority, and enforcing deterministic constraints over model output, is a safety requirement rather than a limitation.",
-    tags: ["AI Governance", "Human-in-the-Loop", "Risk Management"],
+      "Why the gap between model performance and system reliability is where most AI products quietly collapse. Argues that models are probabilistic components rather than decision-makers, drawing on the human-in-the-loop architecture behind Sentinel Quant and Signlytic.",
+    tags: ["AI Governance", "Human-in-the-Loop", "System Reliability"],
     url: "https://hackernoon.com/why-i-dont-let-ai-make-the-final-decision",
   },
   {
     id: "hackernoon-lab-lying",
     outlet: "HackerNoon",
     title: "The Lab Is Lying to You",
-    date: "2026",
+    date: "29 July 2026",
     description:
-      "On the gap between benchmark performance and real-world deployment: why clean evaluation numbers routinely fail to survive contact with live systems, latency budgets, and messy sensor data.",
-    tags: ["Benchmarking", "Deployment", "ML Engineering"],
+      "What clean benchmarks and polished simulator runs conceal: tracker drift, creeping latency, and edge devices throttling under real load. Lessons from taking ROS 2, YOLOv11, SLAM Toolbox, ByteTrack, and CARLA out of simulation and onto real hardware with ONNX and TensorRT.",
+    tags: ["Sim-to-Real", "Benchmarking", "Edge Deployment", "ROS 2"],
     url: "https://hackernoon.com/the-lab-is-lying-to-you",
   },
 ];
