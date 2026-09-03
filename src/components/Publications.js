@@ -133,7 +133,7 @@ function PublicationCard({ pub, index }) {
           onClick={() => setExpanded(!expanded)}
           aria-expanded={expanded}
           aria-controls={abstractId}
-          style={{ ...linkBtnStyle, border: "none", background: "transparent", padding: 0, color: "#818CF8", fontSize: 12.5 }}
+          style={{ ...linkBtnStyle, border: "none", background: "transparent", padding: "6px 0", color: "#818CF8", fontSize: 12.5 }}
           onMouseEnter={(e) => (e.currentTarget.style.color = "#A5B4FC")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "#818CF8")}
         >

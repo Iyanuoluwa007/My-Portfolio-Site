@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Portrait from "./Portrait";
 
 const inView = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -52,26 +53,9 @@ export default function Contact() {
               </span>
             </motion.h2>
 
-            {/* Portrait, so anyone assessing the work can put a face to it */}
-            <motion.div {...inView(0.15)} style={{ display:"flex", alignItems:"center", gap:16, marginBottom:26 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/portrait.jpg"
-                alt="Portrait of Iyanuoluwa Enoch Oke"
-                width={92}
-                height={92}
-                loading="lazy"
-                decoding="async"
-                style={{ width:92, height:92, borderRadius:"50%", objectFit:"cover", objectPosition:"center 42%", border:"2px solid rgba(99,102,241,0.4)", boxShadow:"0 0 26px rgba(99,102,241,0.22)", flexShrink:0, display:"block" }}
-              />
-              <div style={{ minWidth:0 }}>
-                <p style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:600, fontSize:16, color:"#F0F0F8", margin:0 }}>
-                  Iyanuoluwa Enoch Oke
-                </p>
-                <p style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:11.5, color:"#676AFB", margin:"4px 0 0" }}>
-                  Robotics &amp; AI Engineer
-                </p>
-              </div>
+            {/* Portrait, click to expand */}
+            <motion.div {...inView(0.15)}>
+              <Portrait />
             </motion.div>
 
             <motion.p {...inView(0.2)} style={{ fontSize:16, color:"#94A3B8", lineHeight:1.8, maxWidth:400, marginBottom:28, fontFamily:"'DM Sans',sans-serif", fontWeight:300 }}>

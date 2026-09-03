@@ -92,9 +92,9 @@ export default function FeaturedProjectCard() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             style={{ minWidth: 0 }}
           >
-            <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 18, color: "#F0F0F8", margin: "0 0 3px" }}>
+            <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 18, color: "#F0F0F8", margin: "0 0 3px" }}>
               {project.title}
-            </h3>
+            </h2>
             <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#676AFB", margin: "0 0 10px" }}>
               {project.subtitle}
             </p>
