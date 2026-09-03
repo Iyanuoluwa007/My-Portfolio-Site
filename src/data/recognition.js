@@ -42,26 +42,33 @@ export const highlights = [
   {
     id: "springer-review",
     kind: "Peer Review",
-    title: "Reviewer Certificate — Springer Nature",
-    org: "BMC Artificial Intelligence",
-    period: "19 June 2026",
+    title: "Reviewer — Springer Nature",
+    org: "Scientific Reports · BMC Artificial Intelligence",
+    period: "2026",
     description:
-      "Awarded by Springer Nature in recognition of peer review contribution to BMC Artificial Intelligence, reviewing submitted manuscripts for scientific rigour, methodology, and contribution to the field.",
+      "Awarded two Springer Nature reviewer certificates in 2026 for peer review contributions to Scientific Reports (Nature Portfolio) and BMC Artificial Intelligence, assessing submitted manuscripts for scientific rigour, methodology, and contribution to the field.",
     stats: [
-      { value: "1", label: "Manuscript reviewed" },
+      { value: "2", label: "Manuscripts reviewed" },
+      { value: "2", label: "Journals" },
       { value: "2026", label: "Review year" },
-      { value: "BMC AI", label: "Journal" },
     ],
-    tags: ["Peer Review", "Springer Nature", "Academic Service"],
+    tags: ["Peer Review", "Springer Nature", "Nature Portfolio", "Academic Service"],
     links: [
-      { label: "Certificate (PDF)", href: "/evidence/springer-reviewer-certificate.pdf" },
+      { label: "Scientific Reports certificate (PDF)", href: "/evidence/springer-scientific-reports-certificate.pdf" },
+      { label: "BMC AI certificate (PDF)", href: "/evidence/springer-bmc-ai-certificate.pdf" },
+      { label: "Scientific Reports", href: "https://www.nature.com/srep/" },
       { label: "BMC Artificial Intelligence", href: "https://bmcartificialintel.biomedcentral.com/" },
     ],
     images: [
       {
-        src: "/evidence/springer-reviewer-certificate.jpg",
+        src: "/evidence/springer-scientific-reports-certificate.jpg",
+        alt: "Springer Nature reviewer certificate awarded to Iyanuoluwa Enoch Oke for contribution to Scientific Reports, dated 3 September 2026",
+        caption: "Scientific Reports reviewer certificate, 3 September 2026",
+      },
+      {
+        src: "/evidence/springer-bmc-ai-certificate.jpg",
         alt: "Springer Nature reviewer certificate awarded to Iyanuoluwa Enoch Oke for contribution to BMC Artificial Intelligence, dated 19 June 2026",
-        caption: "Springer Nature reviewer certificate, 19 June 2026",
+        caption: "BMC Artificial Intelligence reviewer certificate, 19 June 2026",
       },
     ],
   },
